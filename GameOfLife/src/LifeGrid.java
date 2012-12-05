@@ -4,7 +4,9 @@
  * 
  * @author croftj
  * @version (a version number or a date)
+ * Lets try changing this
  */
+
 public class LifeGrid
 {
    private int[][] grid;
