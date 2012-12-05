@@ -1,0 +1,26 @@
+#BlueJ package file
+dependency1.from=BoxBugRunner
+dependency1.to=BoxBug
+dependency1.type=UsesDependency
+package.editor.height=400
+package.editor.width=560
+package.editor.x=56
+package.editor.y=56
+package.numDependencies=1
+package.numTargets=2
+package.showExtends=true
+package.showUses=true
+target1.height=50
+target1.name=BoxBug
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=80
+target1.x=150
+target1.y=10
+target2.height=50
+target2.name=BoxBugRunner
+target2.showInterface=false
+target2.type=ClassTarget
+target2.width=110
+target2.x=150
+target2.y=70

@@ -1,0 +1,16 @@
+#BlueJ package file
+package.editor.height=400
+package.editor.width=560
+package.editor.x=56
+package.editor.y=56
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
+target1.height=50
+target1.name=BugRunner
+target1.showInterface=false
+target1.type=ClassTarget
+target1.width=90
+target1.x=150
+target1.y=10
