@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
-<libraryInfo home="C:\Program Files\Java\jre7" version="1.7.0_04">
+<libraryInfo home="C:\Program Files\Java\jre7" version="1.7.0_03">
 <bootpath>
 <entry path="C:\Program Files\Java\jre7\lib\resources.jar"/>
 <entry path="C:\Program Files\Java\jre7\lib\rt.jar"/>
@@ -8,7 +8,6 @@
 <entry path="C:\Program Files\Java\jre7\lib\jsse.jar"/>
 <entry path="C:\Program Files\Java\jre7\lib\jce.jar"/>
 <entry path="C:\Program Files\Java\jre7\lib\charsets.jar"/>
-<entry path="C:\Program Files\Java\jre7\lib\jfr.jar"/>
 <entry path="C:\Program Files\Java\jre7\classes"/>
 </bootpath>
 <extensionDirs>

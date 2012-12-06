@@ -4,7 +4,7 @@
  * 
  * @author croftj
  * @version (a version number or a date)
- * Lets try changing this
+ * Lets try changing this again!
  */
 
 public class LifeGrid
