@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=actors
+comment0.target=void\ processActors(ArrayList<Actor>)
+comment0.text=\nRandomly\ selects\ a\ neighbor\ and\ changes\ this\ critter's\ color\ to\ be\ the\nsame\ as\ that\ neighbor's.\ If\ there\ are\ no\ neighbors,\ no\ action\ is\ taken.\n\n
+comment1.params=loc
+comment1.target=void\ makeMove(Location)
+comment1.text=\nTurns\ towards\ the\ new\ location\ as\ it\ moves.\n\n
+numComments=2

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=length
+comment0.target=BoxBug(int)
+comment0.text=\nConstructs\ a\ box\ bug\ that\ traces\ a\ square\ of\ a\ given\ side\ length\n@param\ length\ the\ side\ length\n\n
+comment1.target=void\ act()
+comment1.text=\nMoves\ to\ the\ next\ location\ of\ the\ square.\n\n
+numComments=2
