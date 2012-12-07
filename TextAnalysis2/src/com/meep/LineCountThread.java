@@ -25,6 +25,7 @@ public class LineCountThread implements Runnable {
 		String[] lines=data.split("\\r?\\n");
 		System.out.println("Lines: "+lines.length);
 		TextAnalyzer.LINECOUNT=lines.length;
+		TextAnalyzer.LINES=lines;
 	}
 	
 	@Override

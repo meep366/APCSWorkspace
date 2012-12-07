@@ -6,7 +6,9 @@ package com.meep;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * @author jack
@@ -32,7 +34,8 @@ public class WordStatCounter implements Runnable {
 		String leastFrequentWord=words[0];
 		int leastFrequency=10;
 		int mostFrequency=1;
-		HashMap<String,Integer> frequencies=new HashMap<String,Integer>();
+		Map<String,Integer> frequencies=new TreeMap<String,Integer>();
+		
 		
 		for(int i=0;i<words.length;i++)
 		{
