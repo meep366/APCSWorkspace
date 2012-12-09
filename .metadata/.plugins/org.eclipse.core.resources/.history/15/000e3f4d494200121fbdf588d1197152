@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class Problem13 {
+
+	/**
+	 * @param args
+	 */
+	
+	public int[][] makeMagicSquare(int n)
+	{
+		int[][] magicSquare=new int[n][n];
+		int current=1;
+		int i=1;
+		int j=1;
+		
+		for(int c=0;c<n*n;c++)
+		{
+			magicSquare[i][j]=current;
+			
+			if()
+		}
+		
+		return magicSquare;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Problem13 p13=new Problem13();
+		int[][] magic=p13.makeMagicSquare(3);
+		
+	}
+
+}

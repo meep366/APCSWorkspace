@@ -1,0 +1,56 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class Problem13 {
+
+	/**
+	 * @param args
+	 */
+	
+	public int[][] makeMagicSquare(int n)
+	{
+		int[][] magicSquare=new int[n][n];
+		int current=1;
+		int i=0;
+		int j=1;
+		current++;
+		
+		for(int c=0;c<n*n;c++)
+		{
+			magicSquare[i][j]=current;
+			
+			i--;
+			j++;
+			
+			if(i==-1)
+				i=magicSquare.length-1;
+			if(j==n)
+				j=0;
+			if(magicSquare[i][j]!=0)
+				i++;
+			if(i>n-1)
+				i=0;
+		}
+		
+		return magicSquare;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Problem13 p13=new Problem13();
+		int[][] magic=p13.makeMagicSquare(3);
+		
+		for(int i=0;i<magic.length;i++)
+		{
+			for(int j=0;j<magic[0].length;j++)
+				System.out.println(magic[i][j]);
+		}
+	}
+
+}
