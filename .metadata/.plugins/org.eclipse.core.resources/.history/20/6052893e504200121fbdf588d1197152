@@ -1,5 +1,17 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
 public class Problem13 {
 
+	/**
+	 * @param args
+	 */
+	
 	public int[][] makeMagicSquare(int n)
 	{
 		int[][] magicSquare=new int[n][n];
@@ -36,4 +48,18 @@ public class Problem13 {
 		
 		return magicSquare;
 	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Problem13 p13=new Problem13();
+		int[][] magic=p13.makeMagicSquare(3);
+		
+		for(int i=0;i<magic.length;i++)
+		{
+			for(int j=0;j<magic[0].length;j++)
+				System.out.println(magic[i][j]);
+		}
+	}
+
 }
