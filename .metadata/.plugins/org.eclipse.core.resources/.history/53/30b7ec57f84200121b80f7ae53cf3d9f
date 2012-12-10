@@ -117,7 +117,7 @@ public class LifeGrid
 			   jEnd=3;
 		   for(;j<jEnd;j++)
 		   {
-			   if(grid[row-1+i][col-1+j]==ALIVE&&!(i==1&&j==1))		//check if alive and not at itself
+			   if(grid[row-1+i][col-1+j]==1&&!(i==1&&j==1))		//check if alive
 				   counter++;
 		   }
 	   }

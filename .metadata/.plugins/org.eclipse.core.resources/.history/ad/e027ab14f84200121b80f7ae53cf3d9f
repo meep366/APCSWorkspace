@@ -85,7 +85,7 @@ public class LifeGrid
 			  }
 		  }
 	  }
-	  grid=temp;		//set grid to temp
+	  grid=temp;
    }
    
    //@param row-specific row
@@ -100,24 +100,24 @@ public class LifeGrid
 	   int gridHeight=grid[0].length;
 	   
 	   
-	   if(row==0)		//check to see if at top
+	   if(row==0)
 		   i=1;
-	   if(row==gridLength-1)		//check for bottom
+	   if(row==gridLength-1)
 	   		iEnd=2;
 	   	
 	   for(;i<iEnd;i++)
 	   {
-		   if(col==0)		//check for left
+		   if(col==0)
 			   j=1;
 		   else
 			   j=0;
-		   if(col==gridHeight-1)		//check for right
+		   if(col==gridHeight-1)
 		   		jEnd=2;
 		   else
 			   jEnd=3;
 		   for(;j<jEnd;j++)
 		   {
-			   if(grid[row-1+i][col-1+j]==ALIVE&&!(i==1&&j==1))		//check if alive and not at itself
+			   if(grid[row-1+i][col-1+j]==1&&!(i==1&&j==1))
 				   counter++;
 		   }
 	   }
