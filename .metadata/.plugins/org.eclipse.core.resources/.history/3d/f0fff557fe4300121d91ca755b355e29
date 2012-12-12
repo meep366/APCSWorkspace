@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public abstract class Poem {
+
+	/**
+	 * @param args
+	 */
+	private int lines;
+	
+	public abstract int numLines();
+	
+	public abstract int getSyllables(int k);
+	
+	public void printRhythm() 
+	{
+		for(int i=0;i<numLines();i++)
+		{
+			
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

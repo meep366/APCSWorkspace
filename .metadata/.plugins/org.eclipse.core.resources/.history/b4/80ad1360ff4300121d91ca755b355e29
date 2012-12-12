@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class Limerick extends Poem{
+
+	/**
+	 * @param args
+	 */
+	private int lines=5;
+	
+	public int getSyllables(int k)
+	{
+		
+	}
+	
+	public int numLines()
+	{
+		return lines;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
