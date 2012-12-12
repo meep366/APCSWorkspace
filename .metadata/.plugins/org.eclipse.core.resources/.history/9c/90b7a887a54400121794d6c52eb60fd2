@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package projects.boxBug;
+
+import java.awt.Color;
+
+import info.gridworld.actor.Flower;
+import info.gridworld.grid.Location;
+
+/**
+ * @author jack
+ *
+ */
+public class Dionaea extends Flower{
+
+	/**
+	 * @param args
+	 */
+	
+	public Dionaea()
+	{
+		super(null);
+	}
+	
+	public Dionaea(Color color)
+	{
+		super(color);
+	}
+	
+	public void turn()
+	{
+		setDirection(getDirection() + Location.HALF_RIGHT);
+	}
+	
+	public void eat()
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -9,6 +9,7 @@ public class Problem12 {
 				int place=grid[i][j];
 				int rowCount=0;
 				int colCount=0;
+				
 				for(int k=0;k<grid.length;k++)
 				{
 					if(grid[i][k]==place)

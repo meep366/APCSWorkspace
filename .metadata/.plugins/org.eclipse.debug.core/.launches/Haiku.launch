@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Chapter11/src/Haiku.java"/>
+<listEntry value="/Chapter11/src/problems1/Haiku.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Haiku"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="problems1.Haiku"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Chapter11"/>
 </launchConfiguration>

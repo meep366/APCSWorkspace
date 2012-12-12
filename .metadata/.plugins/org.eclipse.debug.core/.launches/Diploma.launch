@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Chapter11/src/Diploma.java"/>
+<listEntry value="/Chapter11/src/problems1/Diploma.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Diploma"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="problems1.Diploma"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Chapter11"/>
 </launchConfiguration>

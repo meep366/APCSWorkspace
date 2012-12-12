@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="H:/AP Computer Science/GridWorld Students/GridWorld Students/GridWorldCode/gridworld.jar" sourcepath="//ms-stor-5/users$/CL2013/croftj/AP Computer Science/GridWorld Students/GridWorld Students/GridWorldCode">
+	<classpathentry kind="lib" path="C:/Users/jack/Desktop/School Stuff/12th Grade/Term 1/AP Computer Science AB/GridWorld Students/GridWorldCode/gridworld.jar" sourcepath="//ms-stor-5/users$/CL2013/croftj/AP Computer Science/GridWorld Students/GridWorld Students/GridWorldCode">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/H:/AP Computer Science/GridWorld Students/GridWorld Students/GridWorldCode/javadoc/"/>
 		</attributes>

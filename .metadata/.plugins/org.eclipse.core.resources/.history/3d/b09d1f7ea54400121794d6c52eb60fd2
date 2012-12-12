@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package projects.boxBug;
+
+import info.gridworld.actor.Flower;
+
+/**
+ * @author jack
+ *
+ */
+public class Dionaea extends Flower{
+
+	/**
+	 * @param args
+	 */
+	
+	public Dionaea()
+	{
+		super(null);
+	}
+	
+	public Dionaea(Color color)
+	{
+		super(color);
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
