@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package homework;
+
+/**
+ * @author jack
+ *
+ */
+public abstract class Face {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

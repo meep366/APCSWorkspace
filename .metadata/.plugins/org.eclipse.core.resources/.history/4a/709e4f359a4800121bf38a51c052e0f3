@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package homework;
+
+/**
+ * @author jack
+ *
+ */
+public class Clock {
+
+	/**
+	 * @param args
+	 */
+	
+	private int hours,mins;
+	
+	public Clock(int h, int m)
+	{
+		hours=h;
+		mins=m;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

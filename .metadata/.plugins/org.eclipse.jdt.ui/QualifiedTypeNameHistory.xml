@@ -16,11 +16,12 @@
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Flower"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="info.gridworld.actor.Bug"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.Grid"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Critter"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Actor"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.Location"/>
+<fullyQualifiedTypeName name="info.gridworld.actor.Bug"/>
+<fullyQualifiedTypeName name="java.awt.Graphics"/>
 </qualifiedTypeNameHistroy>

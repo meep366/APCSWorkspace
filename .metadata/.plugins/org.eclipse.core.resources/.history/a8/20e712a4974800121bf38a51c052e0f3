@@ -1,0 +1,49 @@
+/**
+ * 
+ */
+package homework;
+
+/**
+ * @author jack
+ *
+ */
+public abstract class Math {
+
+	/**
+	 * @param args
+	 */
+	private int aValue,bValue,result;
+	
+	
+	public void setA(int a)
+	{
+		setaValue(a);
+	}
+	
+	public void setB(int b)
+	{
+		bValue=b;
+	}
+	
+	public int getResult()
+	{
+		return result;
+	}
+	
+	public abstract void process();
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public int getaValue() {
+		return aValue;
+	}
+
+	public void setaValue(int aValue) {
+		this.aValue = aValue;
+	}
+
+}
