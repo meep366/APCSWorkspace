@@ -1,0 +1,33 @@
+
+public class ChainWords {
+
+	/**
+	 * @param args
+	 */
+	
+	public static int linkStrength(String word1, String word2)
+	{
+		for(int i=0;i<word2.length();i++)
+		{
+			if(word1.charAt(i)==word2.charAt(0))
+			{
+				System.out.println(word1.substring(i));
+				System.out.println(word2.substring(0,word1.length()-i));
+				if(word1.substring(i).equals(word2.substring(0,word1.length()-i)))
+					return word1.length()-i;
+			}
+		}
+		return 0;
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ChainWords cw=new ChainWords();
+		System.out.println(cw.linkStrength("sand","sandwhich"));
+	}
+
+}

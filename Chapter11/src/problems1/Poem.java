@@ -1,9 +1,5 @@
 package problems1;
 /**
- * 
- */
-
-/**
  * @author jack
  *
  */
@@ -34,11 +30,4 @@ public abstract class Poem {
 		}
 		System.out.println(str);
 	}
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
