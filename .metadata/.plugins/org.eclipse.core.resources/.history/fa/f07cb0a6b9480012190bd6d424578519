@@ -27,7 +27,7 @@ public class WordLinesThread implements Runnable {
 	
 	public void matchWordLines()
 	{
-		
+		long startTime=System.nanoTime();
 		
 		Map<String, ArrayList<Integer>> lineNums = new TreeMap<String, ArrayList<Integer>>();
 		
@@ -55,7 +55,9 @@ public class WordLinesThread implements Runnable {
 		}
 		TextAnalyzer.WORDLINES=(TreeMap) lineNums;
 		
-		
+		long endTime=System.nanoTime();
+	    long time = endTime-startTime;
+	    System.out.println(time);
 	}
 	
 	public void run()

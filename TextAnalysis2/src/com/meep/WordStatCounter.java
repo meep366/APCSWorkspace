@@ -85,13 +85,13 @@ public class WordStatCounter implements Runnable {
 		TextAnalyzer.LONGESTWORD=longestWord;
 		TextAnalyzer.SHORTESTWORD=shortestWord;
 		
-		System.out.println("Distinct Words: "+ TextAnalyzer.DISTINCTWORDCOUNT);
-		System.out.println("Shortest Word: "+shortestWord);
-		System.out.println("Longest Word: "+longestWord);
-		System.out.println("Highest Frequency: "+mostFrequency);
-		System.out.println("Lowest Frequency: "+leastFrequency);
-		System.out.println("Most Frequent Word: "+mostFrequentWord);
-		System.out.println("Least Frequent Word: "+leastFrequentWord);
+//		System.out.println("Distinct Words: "+ TextAnalyzer.DISTINCTWORDCOUNT);
+//		System.out.println("Shortest Word: "+shortestWord);
+//		System.out.println("Longest Word: "+longestWord);
+//		System.out.println("Highest Frequency: "+mostFrequency);
+//		System.out.println("Lowest Frequency: "+leastFrequency);
+//		System.out.println("Most Frequent Word: "+mostFrequentWord);
+//		System.out.println("Least Frequent Word: "+leastFrequentWord);
 	}
 	
 	

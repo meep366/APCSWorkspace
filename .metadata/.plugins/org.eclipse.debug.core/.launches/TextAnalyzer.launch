@@ -6,6 +6,10 @@
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
+<mapAttribute key="org.eclipse.debug.core.preferred_launchers">
+<mapEntry key="[debug]" value="org.eclipse.jdt.launching.localJavaApplication"/>
+<mapEntry key="[run]" value="org.eclipse.jdt.launching.localJavaApplication"/>
+</mapAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.meep.TextAnalyzer"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-i odyssey.txt"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="TextAnalysis2"/>

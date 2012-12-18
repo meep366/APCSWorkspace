@@ -148,7 +148,7 @@ public class TextAnalyzer {
 		Set words=WORDLINES.keySet();
 		Iterator i=words.iterator();
 		
-		long startTime2=System.nanoTime();
+		long startTime=System.nanoTime();
 		while(i.hasNext())
 		{
 			String str=(String)i.next();
@@ -160,9 +160,9 @@ public class TextAnalyzer {
 			OUTPUT+='\n';
 		}
 		
-		long endTime2=System.nanoTime();
-	    long time2 = endTime2-startTime2;
-	    System.out.println(time2);
+		long endTime=System.nanoTime();
+	    long time = endTime-startTime;
+	    System.out.println(time);
 		try 
 		{
 			File output= new File("output.txt");
