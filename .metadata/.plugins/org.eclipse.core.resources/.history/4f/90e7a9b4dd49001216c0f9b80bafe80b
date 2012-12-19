@@ -67,9 +67,9 @@ public class StringTest {
 		
 		for(int i=0;i<s.length();i++)
 		{
-			result[i]=s.substring(0,s.indexOf(delim));
-			i=s.indexOf(delim)+delim.length();
-			s=s.substring(s.indexOf(delim)+1);
+			result[i]=s.substring(i,s.indexOf(delim));
+			//i=s.indexOf(delim)+delim.length();
+			s=s.substring(s.indexOf(delim));
 		}
 		
 		int counter=0;
@@ -102,10 +102,8 @@ public class StringTest {
 		// TODO Auto-generated method stub
 
 		StringTest st= new StringTest();
-		String[] cool=st.mySplit("hello.my.name.is.jack",".");
-		for(int i=0;i<cool.length;i++)
-		{
-			System.out.println(cool[i]);
-		}	
+		st.mySplit("hello.my.name.is.jack",".");
+		
 	}
+
 }

@@ -6,7 +6,6 @@ package critters;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import info.gridworld.actor.Actor;
 import info.gridworld.actor.Critter;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
@@ -54,7 +53,7 @@ public class ChargingKnightCritter extends Critter{
 		ArrayList<Location> temp=new ArrayList<Location>();
 		for(int i=0;i<moves.size();i++)
 		{
-			if(((Actor) (grid.get(moves.get(i)))).getColor()!=getColor())
+			if(grid.get(moves.get(i))!=null)
 				temp.add(moves.get(i));
 		}
 		if(temp.size()!=0)

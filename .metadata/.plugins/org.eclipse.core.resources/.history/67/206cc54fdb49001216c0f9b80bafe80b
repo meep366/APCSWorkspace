@@ -29,6 +29,7 @@ public class MyArrayList {
 			if(added[i])
 				trues++;
 		}
+		
 		return trues;
 	}
 

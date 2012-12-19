@@ -65,7 +65,7 @@ public class StringTest {
 	{
 		String[] result=new String[s.length()];
 		
-		for(int i=0;i<s.length();i++)
+		for(int i=0;i<s.length();j++)
 		{
 			result[i]=s.substring(0,s.indexOf(delim));
 			i=s.indexOf(delim)+delim.length();
