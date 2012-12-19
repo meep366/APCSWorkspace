@@ -1,0 +1,72 @@
+/**
+ * 
+ */
+package boxBug;
+
+import java.util.ArrayList;
+
+import info.gridworld.actor.Actor;
+import info.gridworld.actor.Critter;
+import info.gridworld.grid.Location;
+import info.gridworld.actor.Flower;
+
+/**
+ * @author jack
+ *
+ */
+public class Bee extends Critter{
+
+	/**
+	 * @param args
+	 */
+	
+	public void processActors(ArrayList<Actor> actors)
+	{
+		for(int i=0;i<actors.size();i++)
+		{
+			if(actors.get(i) instanceof Clover)
+				((Clover) actors.get(i)).pollinate();
+		}
+	}
+	
+//	public Location selectMoveLocation(ArrayList<Location> locs)
+//	{
+//		if(!locs.contains(getLocation()))
+//			locs.add(getLocation());
+//		
+//		ArrayList<Location> bestLocs=new ArrayList<Location>(locs.size());
+//		int[] distances=new int[locs.size()];
+//		
+//		for(int i=0;i<locs.size();i++)
+//		{
+//			
+//		}
+//		
+//		return super.selectMoveLocation(bestLocs);
+//	}
+	
+	
+	public Locaation selectMoveLocation(ArrayList<Location> locs){
+		
+	}
+	
+	private int distance(Location loc1, Location loc2)
+	{
+		return Math.max(Math.abs(loc1.getRow()-loc2.getRow()), Math.abs(loc1.getCol()-loc2.getCol()));
+	}
+	
+	public void makeMove(Location loc)
+	{
+		setDirection(getLocation().getDirectionToward(loc));
+		super.makeMove(loc);
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

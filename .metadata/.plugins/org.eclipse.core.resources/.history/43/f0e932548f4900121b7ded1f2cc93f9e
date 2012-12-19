@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package boxBug;
+
+/**
+ * @author jack
+ *
+ */
+public class Clover {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
