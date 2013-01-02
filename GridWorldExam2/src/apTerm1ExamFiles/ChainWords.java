@@ -33,9 +33,5 @@ public class ChainWords {
 				break;
 			}
 		}
-		for(int i=words.size()-1;i>spot;i--)
-		{
-			words.remove(i);
-		}
 	}
 }

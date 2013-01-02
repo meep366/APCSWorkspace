@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 
 import info.gridworld.actor.Actor;
+import info.gridworld.actor.ActorWorld;
 import info.gridworld.actor.Critter;
 import info.gridworld.grid.Location;
 import info.gridworld.actor.Flower;
@@ -115,13 +116,4 @@ public class Bee extends Critter{
 		setDirection(getLocation().getDirectionToward(loc));
 		super.makeMove(loc);
 	}
-	
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

@@ -65,17 +65,26 @@ public class StringTest {
 	{
 		String[] result=new String[s.length()];
 		
-		for(int i=0;i<s.length();i++)
+		
+		for(int i=0,j=0;;i++,j++)
 		{
-			result[i]=s.substring(0,s.indexOf(delim));
-			i=s.indexOf(delim)+delim.length();
-			s=s.substring(s.indexOf(delim)+1);
+			if(s.indexOf(delim)==-1)
+			{
+				result[j]=s;
+				break;
+			}
+			else
+			{
+				result[j]=s.substring(0,s.indexOf(delim));
+				i=s.indexOf(delim)+delim.length();
+				s=s.substring(s.indexOf(delim)+1);
+			}
 		}
 		
 		int counter=0;
 		for(int i=0;i<result.length;i++)
 		{
-			if(result[i]==null)
+			if(result[i]!=null)
 				counter++;
 		}
 		
@@ -90,22 +99,13 @@ public class StringTest {
 			}
 		}
 		
-		return temp;
-	}
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		StringTest st= new StringTest();
-		String[] cool=st.mySplit("hello.my.name.is.jack",".");
-		for(int i=0;i<cool.length;i++)
+		String[] temp2=new String[temp.length-2];
+		for(int i=1;i<temp.length-1;i++)
 		{
-			System.out.println(cool[i]);
-		}	
+			temp2[i-1]=temp[i];
+		}
+		
+		
+		return temp2;
 	}
 }
