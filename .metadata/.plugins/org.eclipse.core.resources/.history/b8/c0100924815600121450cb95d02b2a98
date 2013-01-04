@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class TowersOfHanoi {
+
+	/**
+	 * @param args
+	 */
+	
+	
+	public static void hanoi()
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		hanoi(4,1,2,3);
+	}
+
+}
