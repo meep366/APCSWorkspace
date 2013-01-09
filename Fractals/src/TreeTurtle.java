@@ -41,6 +41,7 @@ public class TreeTurtle extends Turtle{
 		
 		TreeTurtle t=new TreeTurtle();
 		t.drawTree(7,175);
+		t.hide();
 
 	}
 
