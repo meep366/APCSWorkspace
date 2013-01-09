@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+import edu.gatech.mediaprogramming.*;
+/**
+ * @author jack
+ *
+ */
+public class TreeTurtle extends Turtle{
+
+	/**
+	 * @param args
+	 */
+	public void drawTree(int depth, double distance)
+	{
+		if(depth==0)
+		{
+			forward(distance);
+			try{Thread.sleep(10);}
+			catch(InterruptedException e){}
+		}
+		else
+		{
+			
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
