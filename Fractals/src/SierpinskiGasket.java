@@ -19,13 +19,18 @@ public class SierpinskiGasket extends Turtle{
 	{
 		if(depth==1)
 		{
-			turn(30);
-			forward(length);
-			turn(120);
-			forward(length);
-			turn(120);
-			forward(length);
-			turn(120);
+			int angle=30;
+			turn(angle);
+			//forward(length);
+			drawKochCurve(2,length);
+			turn(angle*4);
+		//	forward(length);
+			drawKochCurve(2,length);
+			turn(angle*4);
+			//forward(length);
+			drawKochCurve(2,length);
+			turn(angle*4);
+			
 			try{Thread.sleep(0);}
 			catch(InterruptedException e){}
 		}
@@ -50,11 +55,44 @@ public class SierpinskiGasket extends Turtle{
 	}
 	
 	
+	
+	
+	
+	public void drawKochCurve(int depth, double length)
+	{
+		if(depth==1)
+		{
+			forward(length);
+			try
+			{
+				Thread.sleep(0);
+			}
+			catch(InterruptedException e)
+			{
+				
+			}
+		}
+		else
+		{
+			drawKochCurve(depth-1,length/3);
+			turn(-60);
+			drawKochCurve(depth-1,length/3);
+			turn(120);
+			drawKochCurve(depth-1,length/3);
+			turn(-60);
+			drawKochCurve(depth-1,length/3);
+			
+		}
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		SierpinskiGasket sg=new SierpinskiGasket();
-		sg.drawGasket(4,250);
+		sg.drawGasket(5,250);
+		sg.hide();
 		
 
 	}
