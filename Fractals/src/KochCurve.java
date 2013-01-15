@@ -17,7 +17,7 @@ public class KochCurve extends Turtle{
 		if(depth==1)
 		{
 			forward(length);
-			drawTree(2,length*2);
+			drawTree(2,length);
 			try
 			{
 				Thread.sleep(0);

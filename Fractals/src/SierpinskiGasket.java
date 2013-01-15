@@ -21,14 +21,14 @@ public class SierpinskiGasket extends Turtle{
 		{
 			int angle=30;
 			turn(angle);
-			//forward(length);
-			drawKochCurve(2,length);
+			forward(length);
+			
 			turn(angle*4);
-		//	forward(length);
-			drawKochCurve(2,length);
+			forward(length);
+			
 			turn(angle*4);
-			//forward(length);
-			drawKochCurve(2,length);
+			forward(length);
+			
 			turn(angle*4);
 			
 			try{Thread.sleep(0);}

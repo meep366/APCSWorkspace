@@ -21,10 +21,10 @@ public class CopyOfSierpinskiGasket extends Turtle{
 		{
 			int angle=30;
 			turn(angle);
-			//forward(length);
 			drawTree(2,length);
+			//forward(length);
 			turn(angle*4);
-		//	forward(length);
+		    //forward(length);
 			drawTree(2,length);
 			turn(angle*4);
 			//forward(length);
@@ -59,7 +59,7 @@ public class CopyOfSierpinskiGasket extends Turtle{
 		if(depth==1)
 		{
 			forward(length);
-			drawTree(2,length*2);
+			
 			try
 			{
 				Thread.sleep(0);
@@ -114,6 +114,16 @@ public class CopyOfSierpinskiGasket extends Turtle{
 		// TODO Auto-generated method stub
 		
 		CopyOfSierpinskiGasket sg=new CopyOfSierpinskiGasket();
+//		sg.drawGasket(5,250);
+//		sg.turn(90);
+//		sg.drawGasket(5,250);
+//		sg.turn(90);
+//		sg.drawGasket(5,250);
+//		sg.turn(30);
+//		sg.drawGasket(5,250);
+//		sg.turn(90);
+//		sg.drawGasket(5,250);
+//		sg.turn(90);
 		sg.drawGasket(5,250);
 		sg.hide();
 		

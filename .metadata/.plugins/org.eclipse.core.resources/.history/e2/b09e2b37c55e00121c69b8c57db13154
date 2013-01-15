@@ -17,6 +17,15 @@ public class KochCurve extends Turtle{
 		if(depth==1)
 		{
 			forward(length);
+			drawTree(2,length*2);
+			try
+			{
+				Thread.sleep(0);
+			}
+			catch(InterruptedException e)
+			{
+				
+			}
 		}
 		else
 		{
@@ -32,6 +41,30 @@ public class KochCurve extends Turtle{
 		
 	}
 	
+	public void drawTree(int depth, double distance)
+	{
+		if(depth==0)
+		{
+			forward(distance);
+			backward(distance);
+			try{Thread.sleep(0);}
+			catch(InterruptedException e){}
+		}
+		else
+		{
+			int angle=60;
+			double half=distance/2;
+			forward(distance);
+			turn(-angle);
+			drawTree(depth-1,half);
+			turn(2*angle);
+			drawTree(depth-1,half);
+			turn(-angle);
+			drawTree(depth-1,half);
+			backward(distance);
+		}
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -39,7 +72,9 @@ public class KochCurve extends Turtle{
 		
 		KochCurve t=new KochCurve();
 		t.turn(90); //face east
-		t.drawKochCurve(6, 400);
+		t.moveTo(200,200);
+		t.drawKochCurve(5, 400);
+		t.hide();
 		
 
 	}
