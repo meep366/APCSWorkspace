@@ -29,13 +29,12 @@ public class CopyOfKochCurve extends Turtle{
 		}
 		else
 		{
-			int angle=40;
 			drawKochCurve(depth-1,length/3);
-			turn(-angle);
+			turn(-60);
 			drawKochCurve(depth-1,length/3);
-			turn(2*angle);
+			turn(120);
 			drawKochCurve(depth-1,length/3);
-			turn(-angle);
+			turn(-60);
 			drawKochCurve(depth-1,length/3);
 			
 		}
@@ -46,7 +45,7 @@ public class CopyOfKochCurve extends Turtle{
 	{
 		if(depth==0)
 		{
-			forward(distance);
+			forward(distance*2);
 			backward(distance);
 			try{Thread.sleep(0);}
 			catch(InterruptedException e){}
@@ -73,12 +72,8 @@ public class CopyOfKochCurve extends Turtle{
 		
 		CopyOfKochCurve t=new CopyOfKochCurve();
 		t.turn(90); //face east
-		t.penUp();
-		t.moveTo(0,200);
-		t.penDown();
-		t.drawKochCurve(5, 350);
-		t.turn(180);
-		t.drawKochCurve(5,350);
+		t.moveTo(200,200);
+		t.drawKochCurve(5, 400);
 		t.hide();
 		
 

@@ -73,9 +73,7 @@ public class CopyOfKochCurve extends Turtle{
 		
 		CopyOfKochCurve t=new CopyOfKochCurve();
 		t.turn(90); //face east
-		t.penUp();
 		t.moveTo(0,200);
-		t.penDown();
 		t.drawKochCurve(5, 350);
 		t.turn(180);
 		t.drawKochCurve(5,350);
