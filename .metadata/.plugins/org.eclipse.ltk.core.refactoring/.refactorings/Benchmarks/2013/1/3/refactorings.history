@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 5 elements to &apos;Benchmarks/src&apos;&#x0D;&#x0A;- Original project: &apos;Benchmarks&apos;&#x0D;&#x0A;- Destination element: &apos;Benchmarks/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     InsertionSort.java&#x0D;&#x0A;     SelectionSort.java&#x0D;&#x0A;     Benchmarks.java&#x0D;&#x0A;     Quicksort.java&#x0D;&#x0A;     Mergesort.java&#x0D;&#x0A;- Update references to refactored element" description="Move files" destination="/src" element1="InsertionSort.java" element2="SelectionSort.java" element3="Benchmarks.java" element4="Quicksort.java" element5="Mergesort.java" files="5" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1358364974256" units="0" version="1.0"/>
+</session>
