@@ -72,23 +72,23 @@ public class Benchmarks extends JFrame
 	
     if(sortMethod==1)
     {
-    	SelectionSort.sort(a);
+    	
     }
     if(sortMethod==2)
     {
-    	InsertionSort.sort(a);
+    	
     }
     if(sortMethod==3)
     {
-    	Mergesort.sort(a);
+    	
     }
     if(sortMethod==4)
     {
-    	Quicksort.sort(a);
+    	
     }
     if(sortMethod==5)
     {
-    	Arrays.sort(a);
+    	
     }
     
     return (System.nanoTime()-startTime)/1000;
