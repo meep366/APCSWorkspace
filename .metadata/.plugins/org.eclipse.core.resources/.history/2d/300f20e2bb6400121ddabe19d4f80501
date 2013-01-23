@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Benchmarks extends JFrame
 {
-  private static int numberOfRuns = 1000;
+  private static int numberOfRuns = 100;
 
   private JTextField arraySizeInput, display;
   private String sortMethodNames[] =
