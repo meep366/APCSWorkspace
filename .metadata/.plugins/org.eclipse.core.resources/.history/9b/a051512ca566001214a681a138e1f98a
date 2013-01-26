@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class Quick {
+
+	/**
+	 * @param args
+	 */
+	
+	public static void sort(double[] a)
+	{
+		recursiveSort(a,0, a.length-1);
+	}
+	
+	private static void recursiveSort(double[] a, int from, int to)
+	{
+		if(from>=to)
+			return;
+		
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

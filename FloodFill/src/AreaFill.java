@@ -65,21 +65,30 @@ public class AreaFill extends JPanel
   // location inside the pool.
   private void fillPool(Color[][] plane, int row, int col, Color color)
   {
-	  if(plane[row][col].equals(WHITE))
-		  plane[row][col]=color;
 	  
-	  if(plane[row][col+1].equals(WHITE))
-		  fillPool(plane,row,col+1,color);
-	  
-	  if(plane[row][col-1].equals(WHITE))
-		  fillPool(plane,row,col+1,color);
-	  
-	  if(plane[row+1][col].equals(WHITE))
-		  fillPool(plane,row,col+1,color);
-	  
-	  if(plane[row-1][col].equals(WHITE))
-		  fillPool(plane,row,col+1,color);
+	  if(isValidLocation(plane,row,col))
+	  {
+		 
+		  if(plane[row][col].equals(Color.BLACK))
+		  {
+			  plane[row][col]=color;
+			  
+			  if(isValidLocation(plane,row-1,col)&&plane[row-1][col].equals(Color.BLACK))
+				  fillPool(plane,row-1,col,color);
+		  
+			  if(isValidLocation(plane,row,col+1)&&plane[row][col+1].equals(Color.BLACK))
+				  fillPool(plane,row,col+1,color);
+			  
+			  if(isValidLocation(plane,row,col-1)&&plane[row][col-1].equals(Color.BLACK))
+				  fillPool(plane,row,col-1,color);
+			  
+			  if(isValidLocation(plane,row+1,col)&&plane[row+1][col].equals(Color.BLACK))
+				  fillPool(plane,row+1,col,color);
+			  
+		  }
+	  }
   }
+  
 
   // Fills pool with Color.BLUE color.
   private void fillPool(Color[][] plane, int row, int col)

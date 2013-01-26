@@ -114,16 +114,16 @@ public class CopyOfSierpinskiGasket extends Turtle{
 		// TODO Auto-generated method stub
 		
 		CopyOfSierpinskiGasket sg=new CopyOfSierpinskiGasket();
-//		sg.drawGasket(5,250);
-//		sg.turn(90);
-//		sg.drawGasket(5,250);
-//		sg.turn(90);
-//		sg.drawGasket(5,250);
-//		sg.turn(30);
-//		sg.drawGasket(5,250);
-//		sg.turn(90);
-//		sg.drawGasket(5,250);
-//		sg.turn(90);
+		sg.drawGasket(5,250);
+		sg.turn(90);
+		sg.drawGasket(5,250);
+		sg.turn(90);
+		sg.drawGasket(5,250);
+		sg.turn(30);
+		sg.drawGasket(5,250);
+		sg.turn(90);
+		sg.drawGasket(5,250);
+		sg.turn(90);
 		sg.drawGasket(5,250);
 		sg.hide();
 		

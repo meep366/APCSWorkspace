@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class Merge {
+
+	/**
+	 * @param args
+	 */
+	
+	private static double[] temp;
+	
+	public static void sort(double[] a)
+	{
+		temp=new double[a.length];
+		recursiveSort(a, 0, a.length-1);
+	}
+	
+	private static void recursiveSort(double[] a, int from, int to)
+	{
+		if(to-from<2)
+		{
+			if(to>from&&a[from]>a[to])
+			{
+				
+			}
+		}
+	}
+	
+	private static void merge(double[] a, int from, int middle, int to)
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
