@@ -65,27 +65,25 @@ public class AreaFill extends JPanel
   // location inside the pool.
   private void fillPool(Color[][] plane, int row, int col, Color color)
   {
-	  
 	  if(isValidLocation(plane,row,col))
-	  {
-		 
-		  if(plane[row][col].equals(Color.BLACK))
-		  {
-			  plane[row][col]=color;
-			  
-			  if(isValidLocation(plane,row-1,col)&&plane[row-1][col].equals(Color.BLACK))
-				  fillPool(plane,row-1,col,color);
+	  {	  
+		  Color clickedColor=plane[row][col];
 		  
-			  if(isValidLocation(plane,row,col+1)&&plane[row][col+1].equals(Color.BLACK))
-				  fillPool(plane,row,col+1,color);
+		  if(plane[row][col].equals(clickedColor))
+		  
+		  plane[row][col]=color;
+		  
+		  if(isValidLocation(plane,row-1,col)&&plane[row-1][col].equals(clickedColor))
+			  fillPool(plane,row-1,col,color);
+		  
+		  if(isValidLocation(plane,row,col+1)&&plane[row][col+1].equals(clickedColor))
+			  fillPool(plane,row,col+1,color);
 			  
-			  if(isValidLocation(plane,row,col-1)&&plane[row][col-1].equals(Color.BLACK))
-				  fillPool(plane,row,col-1,color);
+		  if(isValidLocation(plane,row,col-1)&&plane[row][col-1].equals(clickedColor))
+			  fillPool(plane,row,col-1,color);
 			  
-			  if(isValidLocation(plane,row+1,col)&&plane[row+1][col].equals(Color.BLACK))
-				  fillPool(plane,row+1,col,color);
-			  
-		  }
+		  if(isValidLocation(plane,row+1,col)&&plane[row+1][col].equals(clickedColor))
+			  fillPool(plane,row+1,col,color);
 	  }
   }
   
