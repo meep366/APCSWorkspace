@@ -17,15 +17,14 @@ public class Quick {
 		recursiveSort(a,0,a.length-1);
 	}
 	
-	private static void recursiveSort(double[] a, int from, int to)
+	public static void recursiveSort(double[] a, int from, int to)
 	{
 		if(from>=to)
 			return;
 		
-		int p=(from+to)/2;
-		
 		int i=from;
 		int j=to;
+		int p=(from+to)/2;
 		
 		while(i<=j)
 		{
@@ -40,7 +39,6 @@ public class Quick {
 				j--;
 			}
 		}
-		
 		if(p<j)
 		{
 			swap(a,p,j);
@@ -56,11 +54,11 @@ public class Quick {
 		recursiveSort(a,p+1,to);
 	}
 	
-	public static void swap(double[] a, int i, int j)
+	public static void swap(double[] a, int i,int j)
 	{
-		double temp=a[i];
-		a[i]=a[j];
+		double temp=a[j];
 		a[j]=a[i];
+		a[i]=temp;
 	}
 	
 	public static void main(String[] args) {
