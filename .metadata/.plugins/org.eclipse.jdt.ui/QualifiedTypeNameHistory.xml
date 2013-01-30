@@ -13,8 +13,6 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="info.gridworld.grid.Grid"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Critter"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -24,4 +22,7 @@
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Flower"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Actor"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
 </qualifiedTypeNameHistroy>

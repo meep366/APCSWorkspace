@@ -1,0 +1,70 @@
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Problems {
+
+	/**
+	 * @param args
+	 */
+	
+	/*
+	 * Problem #1
+	 * 
+	 * (a) will not compile
+	 * (b) will compile
+	 * (c) will compile
+	 * (d) will not compile
+	 * (e) will compile
+	 * (f) will not compile
+	 * (g) will not compile
+	 * (h) will not compile
+	 * 
+	 */
+	
+	
+	//Problem #2
+	public <E> void append(List<E> list1, List<E> list2)
+	{
+		for(int i=0;i<list2.size();i++)
+		{
+			list1.add(list2.get(i));
+		}
+	}
+	
+	/*
+	 * Problem #3
+	 * 
+	 * Iterators use the most efficient algorithms for going through lists, which is important when you could be going through either an ArrayList or LinkedList
+	 * 
+	 */
+	
+	
+	//Problem #4(a)
+	
+	public <E> void appendA(List<E> list1, List<E> list2)
+	{
+		Iterator i=list2.iterator();
+		
+		while(i.hasNext())
+		{
+			list1.add((E) i.next());
+		}
+	}
+	
+	//Problem #4(b)
+	
+	public <E> void appendB(List<E> list1, List<E> list2)
+	{
+		
+	}
+	
+	
+//	for(Object x:list)
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
