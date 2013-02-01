@@ -1,0 +1,39 @@
+import java.util.Queue;
+
+
+public class Problems2 {
+
+	/**
+	 * @param args
+	 */
+	
+	
+	
+	
+	//Problem 14
+	public class Student
+	{
+		private String name;
+		private double GPA;
+		
+		public Queue<Student> cutAtGPA(Queue<Student> students, double minGPA)
+		{
+			Queue<Student> result;
+			
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

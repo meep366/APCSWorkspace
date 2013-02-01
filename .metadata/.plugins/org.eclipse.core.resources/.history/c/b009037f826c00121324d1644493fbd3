@@ -1,0 +1,49 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+import Problems2.Student;
+
+
+public class Problems2 {
+
+	/**
+	 * @param args
+	 */
+	
+	
+	
+	
+	//Problem 14
+	public class Student
+	{
+		private String name;
+		private double GPA;
+		
+		public Queue<Student> cutAtGPA(Queue<Student> students, double minGPA)
+		{
+			Queue<Student> honors = new LinkedList<Student>();
+			
+			while(!students.isEmpty())
+			{
+				if( students.get(i).GPA>minGPA)
+					
+			}
+			
+			
+			return honors;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
