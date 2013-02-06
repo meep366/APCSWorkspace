@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class Stock {
+
+	/**
+	 * @param args
+	 */
+	
+	private String stockName;
+	private String companyName;
+	private double lowSellPrice;
+	private double highSellPrice;
+	private double volume;
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
