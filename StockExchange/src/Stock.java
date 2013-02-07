@@ -19,6 +19,7 @@ public class Stock {
 	private double lowSellPrice;
 	private double highSellPrice;
 	private double volume;
+	private StockExchange myStockExchange;
 	private PriorityQueue<TradeOrder> buyOrders;
 	private PriorityQueue<TradeOrder> sellOrders;
 	
@@ -46,6 +47,11 @@ public class Stock {
 	public void execute()
 	{
 		
+	}
+	
+	public double returnQuote()
+	{
+		return lowSellPrice;
 	}
 	
 	

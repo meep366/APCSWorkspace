@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class TradeOrder {
+
+	/**
+	 * @param args
+	 */
+	
+	private String stockSymbol;
+	private int numShares;
+	private boolean buy;
+	private boolean market;
+	private int price;
+	
+	
+	public TradeOrder(String stock)
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

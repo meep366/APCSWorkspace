@@ -1,0 +1,33 @@
+import java.util.HashMap;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class StockExchange {
+
+	/**
+	 * @param args
+	 */
+	private Brokerage myBrokerage;
+	private HashMap<String,Stock> stockList;
+	
+	
+	public double getQuote(String stockSymbol)
+	{
+		return stockList.get(stockSymbol).returnQuote();
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
