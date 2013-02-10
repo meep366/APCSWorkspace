@@ -63,10 +63,7 @@ public class Stock {
 	
 	public void execute()
 	{
-		while(!buyOrders.isEmpty()&&!sellOrders.isEmpty())
-		{
-			
-		}
+		
 	}
 	
 	public double returnQuote()

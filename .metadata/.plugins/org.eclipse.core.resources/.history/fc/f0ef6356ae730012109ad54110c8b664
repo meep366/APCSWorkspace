@@ -16,7 +16,7 @@ public class Trader implements Comparable<Trader>
 		this.traderName = username;
 		this.traderPassword = password;
 		mailbox = new LinkedList<String>();
-		myBrokerage.login(traderName,traderPassword);
+		myBrokerage.login(this);
 	}
 	
 	//returns screen name
@@ -28,7 +28,7 @@ public class Trader implements Comparable<Trader>
 	//Requests quote from brokerage
 	public void getQuote(String symbol)
 	{
-		myBrokerage.getQuote(symbol, this);
+		myBrokerage.getQuote(symbol);
 	}
 	
 	//true if mailbox isn't empty
