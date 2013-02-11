@@ -31,9 +31,6 @@ public class Trader implements Comparable<Trader>
 		myBrokerage.getQuote(symbol, this);
 	}
 	
-	//get market price
-	
-	
 	//true if mailbox isn't empty
 	public boolean hasMessages()
 	{

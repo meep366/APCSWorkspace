@@ -27,10 +27,6 @@ public class TradeOrder {
 		this.buy=buy;
 		this.market=market;
 		this.price=price;
-		if(market)
-		{
-			this.price = myTrader.getMarketPrice();
-		}
 		this.myTrader=myTrader;
 	}
 	

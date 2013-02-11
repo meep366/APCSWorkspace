@@ -64,56 +64,10 @@ public class Stock {
 	
 	//grab most important buy(largest price) and sell(smallest price)
 	//if both exist - attempt to resolve
-	//if both market, then price is last price then adjust units and eliminate orders and send messages to Traders
-	//if both limit orders (and sell<=buy) then 
-	//if either one is market, operate at limit price
-	
+	//if both market, then price is last price
 	public void execute()
 	{
-		TradeOrder SELL = sellOrders.peek();
-		TradeOrder BUY = buyOrders.peek();
-		if(!SELL.equals(null) && !BUY.equals(null))
-		{
-			if(BUY.isMarket() && SELL.isMarket())
-			{
-				if(SELL.getShares() > BUY.getShares())
-				{
-					SELL.subtractShares(BUY.getShares());
-					buyOrders.remove();
-				}
-				if(SELL.getShares() < BUY.getShares())
-				{
-					BUY.subtractShares(SELL.getShares());
-					sellOrders.remove();
-				}
-				if(SELL.getShares() == BUY.getShares())
-				{
-					sellOrders.remove();
-					buyOrders.remove();
-				}
-			}
-			if(!BUY.isMarket() || !SELL.isMarket())
-			{
-				if(SELL.getPrice() <= BUY.getPrice())
-				{
-					if(SELL.getShares() > BUY.getShares())
-					{
-						SELL.subtractShares(BUY.getShares());
-						buyOrders.remove();
-					}
-					if(SELL.getShares() < BUY.getShares())
-					{
-						BUY.subtractShares(SELL.getShares());
-						sellOrders.remove();
-					}
-					if(SELL.getShares() == BUY.getShares())
-					{
-						sellOrders.remove();
-						buyOrders.remove();
-					}
-				}
-			}
-		}
+		
 	}
 	
 	public double returnQuote()
