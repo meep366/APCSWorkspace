@@ -183,9 +183,23 @@ public class Stock {
 			execute();
 	}
 	
-	public double returnQuote()
+	public String getQuote()
 	{
-		return lowSellPrice;
+		String result=""+stockSymbol+" selling at: $";
+		
+		if(!buyOrders.isEmpty())
+			result+= buyOrders.peek().getPrice();
+		else
+			result+=lastPrice;
+		
+		result+=" and buying at: $";
+		
+		if(!sellOrders.isEmpty())
+			result+=sellOrders.peek().getPrice();
+		else
+			result+=lastPrice;
+		
+		return result;
 	}
 	
 	

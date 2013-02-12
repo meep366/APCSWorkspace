@@ -31,8 +31,6 @@ public class Trader implements Comparable<Trader>
 		myBrokerage.getQuote(symbol, this);
 	}
 	
-	//get market price
-	
 	
 	//true if mailbox isn't empty
 	public boolean hasMessages()
@@ -97,11 +95,7 @@ public class Trader implements Comparable<Trader>
 	//compares based on screen name
 	public int compareTo(Trader trader2) 
 	{
+		System.out.println("this far");
 		return traderName.compareTo(trader2.traderName);
-	}
-
-	public double getMarketPrice() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }

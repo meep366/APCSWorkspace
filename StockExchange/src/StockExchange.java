@@ -19,27 +19,20 @@ public class StockExchange {
 	
 	public StockExchange() //Constructs a new stock exchange object
 	{
-		Map<String, Integer> stockExchange = new HashMap<String , Integer>();
-		
+		stockList=new HashMap<String,Stock>();
 	}
 	public String getQuote(String stockSymbol)//Returns a quote for a given stock.
 	{
-		return stockList.get(stockSymbol).returnQuote();
+		return stockList.get(stockSymbol).getQuote();
 	}
 	public void listStock(String stockSymbol, String companyName, double price) //Adds a new stock with given parameters to the listed stocks.
 	{
-		
+		Stock s=new Stock(stockSymbol,companyName,price);
+		stockList.put(stockSymbol,s);
 	}
 	public void placeOrder(TradeOrder to) //Places a trade order by calling stock.placeOrder for the stock specified by the stock symbol in the trade order.
 	{
-		if(to.getBuy())										//checks if buy or sell
-			stockList.get(to.getStockSymbol()).buy(to);		//sends buy to Stock
-		else
-			stockList.get(to.getStockSymbol()).sell(to);	//sends sell to Stock
-			
+		stockList.get(to.getSymbol()).placeOrder(to);
 	}
-	public void showMessage(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

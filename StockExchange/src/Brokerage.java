@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -15,14 +17,14 @@ public class Brokerage implements Login {
 	/**
 	 * @param args
 	 */
-	private TreeMap<String,String> myTraders;
-	private TreeSet<String> loggedInTraders;
+	private TreeMap<String,String> myTraders= new TreeMap<String,String>();
+	private TreeSet<String> loggedInTraders = new TreeSet<String>();
+	private HashMap<String,Trader> existingTraders=new HashMap<String,Trader>();
 	private StockExchange myStockExchange;
 	
 	public Brokerage(StockExchange stockExchange) //Constructs new brokerage affiliated with a given stock exchange.
 	{
-		Map<String,String> myTraders = new TreeMap<String,String>(); 
-		TreeSet<String> loggedInTraders = new TreeSet<String>();
+		myStockExchange=stockExchange;
 	}
 	public int addUser(String username, String password) //Tries to register a new trader with a given screen name and password.
 	{
@@ -37,6 +39,8 @@ public class Brokerage implements Login {
 			return -3;
 		else
 		{
+			Trader t=new Trader(this,username,password);
+			existingTraders.put(username,t);
 			myTraders.put(username,password); //add the new user to myTrader
 			return 0;
 		}
@@ -48,22 +52,22 @@ public class Brokerage implements Login {
 	}
 	public int login(String username, String password) // Tries to login a trader with a given screen name and password.
 	{
-		if(!myTraders.containsKey(username)) //myTraders doesnt contain the username
+		if(!myTraders.containsKey(username)) //myTraders doesn't contain the username
 			return -1;  //screen name not found 
-		else if(myTraders.get(username)!= password)  //the password doesnt match the password in the database
+		else if(!myTraders.get(username).equals( password)) //the password doesnt match the password in the database
 			return -2;  //invalid password
 		else if(loggedInTraders.contains(username)) //if the trader is already logged in
 			return -3;  // user is already logged in.
 		else
 		{
-			loggedInTraders.add(username);  //add the user to the loggedintraders
+			loggedInTraders.add(username);  //add the user to the loggedInTraders
+			existingTraders.get(username).openWindow();
 			return 0;
 		}
 	}
 	public void logout(Trader trader) //Removes a specified trader from the set of logged-in traders.
 	{
-		loggedInTraders.remove(trader); //take this trader offline
-		
+		loggedInTraders.remove(trader.getName()); //take this trader offline
 	}
 	public void placeOrder(TradeOrder to) //to = TradeOrder
 	{
