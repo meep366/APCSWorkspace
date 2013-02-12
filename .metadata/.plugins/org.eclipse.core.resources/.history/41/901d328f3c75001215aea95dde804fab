@@ -72,8 +72,6 @@ public class Stock {
 	{
 		TradeOrder SELL = sellOrders.peek();
 		TradeOrder BUY = buyOrders.peek();
-		int numSharesSold = 0;
-		double priceSoldAt = 0;
 		if(!SELL.equals(null) && !BUY.equals(null))
 		{
 			if(BUY.isMarket() && SELL.isMarket())
@@ -81,72 +79,55 @@ public class Stock {
 				if(SELL.getShares() > BUY.getShares())
 				{
 					SELL.subtractShares(BUY.getShares());
-					numSharesSold = BUY.getShares();
-					priceSoldAt = lastPrice;
 					buyOrders.remove();
+					myStockExchange.sendMessage();
 				}
 				if(SELL.getShares() < BUY.getShares())
 				{
 					BUY.subtractShares(SELL.getShares());
-					numSharesSold = SELL.getShares();
-					priceSoldAt = lastPrice;
 					sellOrders.remove();
 				}
 				if(SELL.getShares() == BUY.getShares())
 				{
-					numSharesSold = BUY.getShares();
-					priceSoldAt = lastPrice;
 					sellOrders.remove();
 					buyOrders.remove();
 				}
 			}
 			if(!BUY.isMarket() && SELL.isMarket())
 			{
-				if(SELL.getShares() > BUY.getShares())
-				{
-					SELL.subtractShares(BUY.getShares());
-					numSharesSold = BUY.getShares();
-					priceSoldAt = BUY.getPrice();
-					buyOrders.remove();
-				}
-				if(SELL.getShares() < BUY.getShares())
-				{
-					BUY.subtractShares(SELL.getShares());
-					numSharesSold = SELL.getShares();
-					priceSoldAt = BUY.getPrice();
-					sellOrders.remove();
-				}
-				if(SELL.getShares() == BUY.getShares())
-				{
-					numSharesSold = BUY.getShares();
-					priceSoldAt = BUY.getPrice();
-					sellOrders.remove();
-					buyOrders.remove();
-				}
+					if(SELL.getShares() > BUY.getShares())
+					{
+						SELL.subtractShares(BUY.getShares());
+						buyOrders.remove();
+					}
+					if(SELL.getShares() < BUY.getShares())
+					{
+						BUY.subtractShares(SELL.getShares());
+						sellOrders.remove();
+					}
+					if(SELL.getShares() == BUY.getShares())
+					{
+						sellOrders.remove();
+						buyOrders.remove();
+					}
 			}
 			if(BUY.isMarket() && !SELL.isMarket())
 			{
-				if(SELL.getShares() > BUY.getShares())
-				{
-					SELL.subtractShares(BUY.getShares());
-					numSharesSold = BUY.getShares();
-					priceSoldAt = SELL.getPrice();
-					buyOrders.remove();
-				}
-				if(SELL.getShares() < BUY.getShares())
-				{
-					BUY.subtractShares(SELL.getShares());
-					numSharesSold = SELL.getShares();
-					priceSoldAt = SELL.getPrice();
-					sellOrders.remove();
-				}
-				if(SELL.getShares() == BUY.getShares())
-				{
-					numSharesSold = BUY.getShares();
-					priceSoldAt = SELL.getPrice();
-					sellOrders.remove();
-					buyOrders.remove();
-				}
+					if(SELL.getShares() > BUY.getShares())
+					{
+						SELL.subtractShares(BUY.getShares());
+						buyOrders.remove();
+					}
+					if(SELL.getShares() < BUY.getShares())
+					{
+						BUY.subtractShares(SELL.getShares());
+						sellOrders.remove();
+					}
+					if(SELL.getShares() == BUY.getShares())
+					{
+						sellOrders.remove();
+						buyOrders.remove();
+					}
 			}
 			if(!BUY.isMarket() && !SELL.isMarket())
 			{
@@ -155,32 +136,21 @@ public class Stock {
 					if(SELL.getShares() > BUY.getShares())
 					{
 						SELL.subtractShares(BUY.getShares());
-						numSharesSold = BUY.getShares();
-						priceSoldAt = SELL.getPrice();
 						buyOrders.remove();
 					}
 					if(SELL.getShares() < BUY.getShares())
 					{
 						BUY.subtractShares(SELL.getShares());
-						numSharesSold = SELL.getShares();
-						priceSoldAt = SELL.getPrice();
 						sellOrders.remove();
 					}
 					if(SELL.getShares() == BUY.getShares())
 					{
-						numSharesSold = BUY.getShares();
-						priceSoldAt = SELL.getPrice();
 						sellOrders.remove();
 						buyOrders.remove();
 					}
 				}
 			}
-			BUY.getTrader().recieveMessage("You just bought " + numSharesSold + " share(s) of " + stockSymbol + " at " + priceSoldAt);
-			SELL.getTrader().recieveMessage("You just sold " + numSharesSold + " share(s) of " + stockSymbol + " at " + priceSoldAt);
 		}
-		
-		if(numSharesSold!=0)
-			execute();
 	}
 	
 	public double returnQuote()

@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="Number14.Coins"/>
 <fullyQualifiedTypeName name="info.gridworld.actor.Rock"/>
 <fullyQualifiedTypeName name="javax.xml.stream.Location"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
@@ -30,4 +29,5 @@
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="java.util.TreeMap"/>
 <fullyQualifiedTypeName name="java.util.TreeSet"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
 </qualifiedTypeNameHistroy>

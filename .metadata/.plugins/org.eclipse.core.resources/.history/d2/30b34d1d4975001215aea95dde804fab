@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 
@@ -17,7 +16,7 @@ public class StockExchange {
 	private Brokerage myBrokerage;
 	private HashMap<String,Stock> stockList;
 	
-	public StockExchange() //Constructs a new stock exchange object
+	public stockExchange() //Constructs a new stock exchange object
 	{
 		Map<String, Integer> stockExchange = new HashMap<String , Integer>();
 		

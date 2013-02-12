@@ -99,9 +99,4 @@ public class Trader implements Comparable<Trader>
 	{
 		return traderName.compareTo(trader2.traderName);
 	}
-
-	public double getMarketPrice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
