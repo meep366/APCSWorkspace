@@ -74,7 +74,7 @@ public class Stock {
 		TradeOrder BUY = buyOrders.peek();
 		int numSharesSold = 0;
 		double priceSoldAt = 0;
-		if(SELL!=null && BUY!=null)
+		if(!SELL.equals(null) && !BUY.equals(null))
 		{
 			if(BUY.isMarket() && SELL.isMarket())
 			{
@@ -175,8 +175,8 @@ public class Stock {
 					}
 				}
 			}
-			BUY.getTrader().recieveMessage("You just bought " + numSharesSold + " share(s) of " + stockSymbol + " at $" + priceSoldAt);
-			SELL.getTrader().recieveMessage("You just sold " + numSharesSold + " share(s) of " + stockSymbol + " at $" + priceSoldAt);
+			BUY.getTrader().recieveMessage("You just bought " + numSharesSold + " share(s) of " + stockSymbol + " at " + priceSoldAt);
+			SELL.getTrader().recieveMessage("You just sold " + numSharesSold + " share(s) of " + stockSymbol + " at " + priceSoldAt);
 		}
 		
 		if(numSharesSold!=0)

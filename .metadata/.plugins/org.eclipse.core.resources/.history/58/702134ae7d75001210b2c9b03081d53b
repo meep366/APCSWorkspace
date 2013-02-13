@@ -175,8 +175,8 @@ public class Stock {
 					}
 				}
 			}
-			BUY.getTrader().recieveMessage("You just bought " + numSharesSold + " share(s) of " + stockSymbol + " at $" + priceSoldAt);
-			SELL.getTrader().recieveMessage("You just sold " + numSharesSold + " share(s) of " + stockSymbol + " at $" + priceSoldAt);
+			BUY.getTrader().recieveMessage("You just bought " + numSharesSold + " share(s) of " + stockSymbol + " at " + priceSoldAt);
+			SELL.getTrader().recieveMessage("You just sold " + numSharesSold + " share(s) of " + stockSymbol + " at " + priceSoldAt);
 		}
 		
 		if(numSharesSold!=0)
