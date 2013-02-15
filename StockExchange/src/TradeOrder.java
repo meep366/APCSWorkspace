@@ -1,25 +1,21 @@
 /**
- * 
- */
-
-/**
- * @author jack
+ * @author Jack,Noah,Benji
+ *
+ *General description: basic class for the project, containing all the data needed to complete buy and sell orders between traders
  *
  */
 public class TradeOrder {
-
-	/**
-	 * @param args
-	 */
 	
-	private String stockSymbol;
-	private int numShares;
-	private boolean buy;
-	private boolean market;
-	private double price;
-	private Trader myTrader;
+	private String stockSymbol;		//symbol for reference by traders
+	private int numShares;			//number of shares being bought or sold
+	private boolean buy;			//buy or sell order
+	private boolean market;			//market or limit order
+	private double price;			//price of limit order
+	private Trader myTrader;		//trader who sent order
 	
 	
+	
+	//trade order constructor with all the information about the order
 	public TradeOrder(Trader myTrader,String stockSymbol,  boolean buy,boolean market, int numShares,double price)
 	{
 		this.stockSymbol=stockSymbol;
@@ -83,7 +79,4 @@ public class TradeOrder {
 	{
 		numShares-=shares;
 	}
-	
-	
-
 }

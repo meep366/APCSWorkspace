@@ -5,22 +5,23 @@ import java.util.Comparator;
  */
 
 /**
- * @author jack
+ * @author Jack,Noah,Benji
  *
+ *
+ *General Description: comparator for various trade orders and allows for ascending and descending options
  */
 public class PriceComparator implements Comparator<TradeOrder>{
 
-	/**
-	 * @param args
-	 */
-	
+	//boolean field for ascending or descending
 	private boolean ascending;
 	
+	//default constructor assuming ascending is true
 	public PriceComparator()
 	{
 		ascending=true;
 	}
 	
+	//constructor with option for ascending being either true or false
 	public PriceComparator(boolean asc)
 	{
 		ascending=asc;
@@ -48,13 +49,4 @@ public class PriceComparator implements Comparator<TradeOrder>{
 		
 		return (int)(-t1.getPrice()+t2.getPrice()*100);
 	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-	
-	
-
 }

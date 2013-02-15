@@ -5,24 +5,28 @@ import java.util.PriorityQueue;
  */
 
 /**
- * @author jack
+ * @author Jack,Noah,Benji
+ *
+ *General Description: stock class that represents and individual stock
+ *also has the job of executing orders and providing quotes
  *
  */
 public class Stock {
 
-	/**
-	 * @param args
-	 */
 	
-	private String stockSymbol;
-	private String companyName;
-	private double lowSellPrice;
-	private double highSellPrice;
-	private double lastPrice;
-	private double volume;
+	private String stockSymbol;		//symbol for reference
+	private String companyName;		//company name for reference
+	private double lowSellPrice;	//lowest price for the day
+	private double highSellPrice;	//highest price for the day
+	private double lastPrice;		//last order's price
+	private double volume;			//total amount sold
 	private StockExchange myStockExchange;
+	
+	//Priority queues because they most closely resemble how the orders will be processed
 	private PriorityQueue<TradeOrder> buyOrders;
 	private PriorityQueue<TradeOrder> sellOrders;
+	
+	//constructor that sets all of the values to the individual stock specs
 	
 	public Stock(String stockName, String companyName, double price)
 	{
@@ -37,6 +41,11 @@ public class Stock {
 		buyOrders=new PriorityQueue<TradeOrder>(10,ascending);
 		sellOrders=new PriorityQueue<TradeOrder>(10, descending);
 	}
+	
+	
+	//placeOrder adds new orders to the buy/sellOrders collections 
+	//it also sends a message to the trader saying what the order was for exactly
+	//trader will instruct its trader window to display this message
 	
 	public void placeOrder(TradeOrder order)
 	{
@@ -70,29 +79,29 @@ public class Stock {
 	
 	public void execute()
 	{
-		TradeOrder SELL = sellOrders.peek();
-		TradeOrder BUY = buyOrders.peek();
+		TradeOrder SELL = sellOrders.peek(); //gets the most important sell
+		TradeOrder BUY = buyOrders.peek(); //gets the most important buy
 		int numSharesSold = 0;
 		double priceSoldAt = 0;
-		if(SELL!=null && BUY!=null)
+		if(SELL!=null && BUY!=null) //makes sure that both are existing orders
 		{
-			if(BUY.isMarket() && SELL.isMarket())
+			if(BUY.isMarket() && SELL.isMarket()) //if both are market
 			{
-				if(SELL.getShares() > BUY.getShares())
+				if(SELL.getShares() > BUY.getShares()) //adjusts for more sell shares than buy shares
 				{
-					SELL.subtractShares(BUY.getShares());
-					numSharesSold = BUY.getShares();
-					priceSoldAt = lastPrice;
-					buyOrders.remove();
+					SELL.subtractShares(BUY.getShares()); //adjust the num of sell shares left after the trade
+					numSharesSold = BUY.getShares(); //sets the num of shares sold
+					priceSoldAt = lastPrice; //adjusts lastPrice
+					buyOrders.remove(); //removes the resolved order
 				}
-				if(SELL.getShares() < BUY.getShares())
+				else if(SELL.getShares() < BUY.getShares()) //adjusts for more buy shares than sell shares
 				{
 					BUY.subtractShares(SELL.getShares());
 					numSharesSold = SELL.getShares();
 					priceSoldAt = lastPrice;
 					sellOrders.remove();
 				}
-				if(SELL.getShares() == BUY.getShares())
+				else if(SELL.getShares() == BUY.getShares()) //adjusts for the same amount of each
 				{
 					numSharesSold = BUY.getShares();
 					priceSoldAt = lastPrice;
@@ -100,7 +109,7 @@ public class Stock {
 					buyOrders.remove();
 				}
 			}
-			if(!BUY.isMarket() && SELL.isMarket())
+			else if(!BUY.isMarket() && SELL.isMarket()) //if buy is limit and sell is market
 			{
 				if(SELL.getShares() > BUY.getShares())
 				{
@@ -109,14 +118,14 @@ public class Stock {
 					priceSoldAt = BUY.getPrice();
 					buyOrders.remove();
 				}
-				if(SELL.getShares() < BUY.getShares())
+				else if(SELL.getShares() < BUY.getShares())
 				{
 					BUY.subtractShares(SELL.getShares());
 					numSharesSold = SELL.getShares();
 					priceSoldAt = BUY.getPrice();
 					sellOrders.remove();
 				}
-				if(SELL.getShares() == BUY.getShares())
+				else if(SELL.getShares() == BUY.getShares())
 				{
 					numSharesSold = BUY.getShares();
 					priceSoldAt = BUY.getPrice();
@@ -124,7 +133,7 @@ public class Stock {
 					buyOrders.remove();
 				}
 			}
-			if(BUY.isMarket() && !SELL.isMarket())
+			else if(BUY.isMarket() && !SELL.isMarket()) //if buy is market and sell is limit
 			{
 				if(SELL.getShares() > BUY.getShares())
 				{
@@ -133,14 +142,14 @@ public class Stock {
 					priceSoldAt = SELL.getPrice();
 					buyOrders.remove();
 				}
-				if(SELL.getShares() < BUY.getShares())
+				else if(SELL.getShares() < BUY.getShares())
 				{
 					BUY.subtractShares(SELL.getShares());
 					numSharesSold = SELL.getShares();
 					priceSoldAt = SELL.getPrice();
 					sellOrders.remove();
 				}
-				if(SELL.getShares() == BUY.getShares())
+				else if(SELL.getShares() == BUY.getShares())
 				{
 					numSharesSold = BUY.getShares();
 					priceSoldAt = SELL.getPrice();
@@ -148,9 +157,9 @@ public class Stock {
 					buyOrders.remove();
 				}
 			}
-			if(!BUY.isMarket() && !SELL.isMarket())
+			else if(!BUY.isMarket() && !SELL.isMarket()) //if both are limit
 			{
-				if(SELL.getPrice() <= BUY.getPrice())
+				if(SELL.getPrice() <= BUY.getPrice()) //checks to see if its selling for <= to what they are willing to pay
 				{
 					if(SELL.getShares() > BUY.getShares())
 					{
@@ -159,14 +168,15 @@ public class Stock {
 						priceSoldAt = SELL.getPrice();
 						buyOrders.remove();
 					}
-					if(SELL.getShares() < BUY.getShares())
+					else if(SELL.getShares() < BUY.getShares())
 					{
 						BUY.subtractShares(SELL.getShares());
+						
 						numSharesSold = SELL.getShares();
 						priceSoldAt = SELL.getPrice();
 						sellOrders.remove();
 					}
-					if(SELL.getShares() == BUY.getShares())
+					else if(SELL.getShares() == BUY.getShares())
 					{
 						numSharesSold = BUY.getShares();
 						priceSoldAt = SELL.getPrice();
@@ -179,10 +189,31 @@ public class Stock {
 			SELL.getTrader().recieveMessage("You just sold " + numSharesSold + " share(s) of " + stockSymbol + " at $" + priceSoldAt);
 		}
 		
+		//updates the high/low sell price if need be
+		
+		if(priceSoldAt >= highSellPrice)
+		{
+		  highSellPrice = priceSoldAt;
+		}
+		else
+		{
+		  lowSellPrice = priceSoldAt;
+		}
+		
+		//updates the volume of the shares sold
+		volume += numSharesSold;
+		
+		//updates last sell price
+		if(priceSoldAt!=0)
+			lastPrice=priceSoldAt;
+		
 		if(numSharesSold!=0)
 			execute();
 	}
 	
+	//this returns the value of the stock based on whether or buy/sell orders is empty
+	//if its is empty, we use the last price it was sold and
+	//and the same for the last buy price
 	public String getQuote()
 	{
 		String result=""+stockSymbol+" selling at: $";
@@ -201,13 +232,4 @@ public class Stock {
 		
 		return result;
 	}
-	
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

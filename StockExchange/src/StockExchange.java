@@ -6,14 +6,15 @@ import java.util.Map;
  */
 
 /**
- * @author jack
+ * @author Jack,Noah,Benji
+ * 
+ * General Description: keeps track of all the stocks and communicates trade orders to individual stocks
+ * also has option of adding new stocks to the exchange
  *
  */
 public class StockExchange {
-
-	/**
-	 * @param args
-	 */
+	
+	//HashMap of stocks to be quickly referenced O(1) by a given brokerage
 	private Brokerage myBrokerage;
 	private HashMap<String,Stock> stockList;
 	
@@ -34,5 +35,4 @@ public class StockExchange {
 	{
 		stockList.get(to.getSymbol()).placeOrder(to);
 	}
-	
 }
