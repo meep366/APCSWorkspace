@@ -14,17 +14,12 @@ import java.util.Queue;
 
 public class Trader implements Comparable<Trader>
 {
-	private String traderName;			//name of trader
-	private String traderPassword;		//trader password
-	
-	//list of messages, should be a queue because it most closely represents the way messages are recieved and read in the project
-	private Queue<String> mailbox;	
-	private Brokerage myBrokerage;		
+	private String traderName;
+	private String traderPassword;
+	private Queue<String> mailbox;
+	private Brokerage myBrokerage;
 	private TraderWindow myTraderWindow;
 	
-	
-	//this constructor sets the trader's user name and password 
-	//its also initiates the mailbox that accepts messages from other classes
 	public Trader(Brokerage myBrokerage,String username, String password)
 	{
 		this.myBrokerage=myBrokerage;
@@ -57,7 +52,7 @@ public class Trader implements Comparable<Trader>
 	public void openWindow()
 	{
 		myTraderWindow=new TraderWindow(this);
-		while(mailbox.size()!=0)	//makes sure that there are actually messages
+		while(mailbox.size()!=0)
 		{
 			myTraderWindow.showMessage(mailbox.remove());
 		}
@@ -66,12 +61,12 @@ public class Trader implements Comparable<Trader>
 	//adds a message to mailbox and displays all messages if logged in
 	public void recieveMessage(String msg)
 	{
-		mailbox.add(msg);		//adds message to the mailbox
+		mailbox.add(msg);
 		if(myTraderWindow!=null)
 		{
 			while(mailbox.size()!=0)
 			{
-				myTraderWindow.showMessage(mailbox.remove());	//tells the traderwindow to display these messages
+				myTraderWindow.showMessage(mailbox.remove());
 			}
 		}
 	}
@@ -87,9 +82,7 @@ public class Trader implements Comparable<Trader>
 	{
 		myBrokerage.placeOrder(tradeorder);
 	}
-	
-	//this method logs the trader out of the brokerage
-	//it also deletes its traderWindow
+
 	public void quit()
 	{
 		myBrokerage.logout(this);

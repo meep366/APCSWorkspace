@@ -87,9 +87,7 @@ public class Trader implements Comparable<Trader>
 	{
 		myBrokerage.placeOrder(tradeorder);
 	}
-	
-	//this method logs the trader out of the brokerage
-	//it also deletes its traderWindow
+
 	public void quit()
 	{
 		myBrokerage.logout(this);
