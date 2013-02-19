@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public interface Qwewe {
+
+	
+	boolean isEmpty();
+	
+	booelan add(Object obj);
+	
+	Object remove();
+	
+	Object peek();
+}

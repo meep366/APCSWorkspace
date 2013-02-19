@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MyQwewe implements Qwewe{
+
+	/**
+	 * @param args
+	 */
+	
+	
+	public boolean add(Object obj)
+	{
+		
+	}
+	
+	public boolean isEmpty()
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
