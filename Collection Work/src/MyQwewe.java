@@ -15,6 +15,7 @@ public class MyQwewe implements Qwewe{
 	private Object[] qwewe;
 	private int front=0;			//next element location in existing Q
 	private int back=0;				//next available array location for a new item
+	private boolean empty=true;
 	
 	public MyQwewe(int capacity)
 	{
@@ -23,11 +24,12 @@ public class MyQwewe implements Qwewe{
 	
 	public boolean isFull()
 	{
-		return front==back&&qwewe[back]!=null;
+		return front==back&&!empty;
 	}
 	
 	public boolean add(Object obj)
 	{
+		empty=false;
 		if(isFull())
 			return false;
 		
@@ -41,7 +43,7 @@ public class MyQwewe implements Qwewe{
 	
 	public boolean isEmpty()
 	{
-		return front==back&&qwewe[back]==null;
+		return front==back&&empty;
 	}
 	
 	public Object remove()
@@ -51,6 +53,8 @@ public class MyQwewe implements Qwewe{
 			front=0;
 			Object o=qwewe[qwewe.length-1];
 			qwewe[qwewe.length-1]=null;
+			if(front==back)
+				empty=true;
 			return o;
 		}
 		else
@@ -58,6 +62,8 @@ public class MyQwewe implements Qwewe{
 			front++;
 			Object o= qwewe[front-1];
 			qwewe[front-1]=null;
+			if(front==back)
+				empty=true;
 			return o;
 		}
 	}
