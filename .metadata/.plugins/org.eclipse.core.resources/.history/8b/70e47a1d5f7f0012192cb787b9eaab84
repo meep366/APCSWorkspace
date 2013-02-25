@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public interface DataPacket {
+
+}

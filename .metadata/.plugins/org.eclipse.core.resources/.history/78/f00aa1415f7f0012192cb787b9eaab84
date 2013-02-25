@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public interface DataPacket {
+	
+	public String getSource();
+	
+
+}

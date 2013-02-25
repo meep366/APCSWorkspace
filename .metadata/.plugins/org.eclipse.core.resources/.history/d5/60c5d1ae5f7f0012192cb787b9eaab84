@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public interface DataPacket {
+	
+	public String getSource();
+	public int getQuadrant();
+	public double getIntelFactor();
+	public int getStrength();
+	public int getDuration();
+	
+
+}

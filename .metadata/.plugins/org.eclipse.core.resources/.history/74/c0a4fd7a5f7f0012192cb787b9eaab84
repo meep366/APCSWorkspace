@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class StarWatch {
+
+	/**
+	 * @param args
+	 */
+	
+	private ArrayList<DataPacket> dataPackets;
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
