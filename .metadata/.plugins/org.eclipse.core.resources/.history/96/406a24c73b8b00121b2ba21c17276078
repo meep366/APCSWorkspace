@@ -1,0 +1,57 @@
+import java.util.Queue;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class ClassVersion {
+
+	/**
+	 * @param args
+	 */
+	
+	
+	private static int getDigit(int number, int k)
+	{
+		k+=1;
+		int mod=1;
+		
+		for(int i=0;i<k-1;i++)
+		{
+			mod*=10;
+		}
+		
+		number/=(mod);
+		return number%10;
+	}
+	
+	private static Queue<Integer>[] itemsToQueues(int[] nums, int k)
+	{
+		return null;
+	}
+	
+	private static int[] queuesToArray(Queue[] queues, int numVals)
+	{
+		return null;
+	}
+	
+	public static int[] sort(int[] nums, int numDigits)
+	{
+		for(int i=0;i<numDigits;i++)
+		{
+			nums=queuesToArray(itemsToQueues(nums,i),nums.length);
+		}
+		return nums;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

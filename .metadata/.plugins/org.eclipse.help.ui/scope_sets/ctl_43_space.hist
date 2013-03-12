@@ -1,0 +1,5 @@
+#Tue Mar 12 13:20:50 EDT 2013
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.help.ui.localSearch.master=true
+expression=ctl+space
