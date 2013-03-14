@@ -1,0 +1,20 @@
+
+public class mathstuff {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		long total=0;
+		
+		for(int i=1;i<10000;i++)
+		{
+			System.out.println(1./i);
+			total+=Math.sin(1./i);
+		}
+		System.out.println(total);
+	}
+
+}
