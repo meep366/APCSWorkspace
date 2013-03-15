@@ -1,5 +1,6 @@
 // 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -61,6 +62,11 @@ public class CookieMonsterStarter
 		  return col;
 	  }
 	  
+	  public int cookiesAtLocation()
+	  {
+		  return cookies[row][col];
+	  }
+	  
 	  public String toString()
 	  {
 		  return "("+row+ " ,"+col+")";
@@ -77,10 +83,20 @@ public class CookieMonsterStarter
 		  return pathTotal;
 	  }
 	  
+	  public Location getLocation()
+	  {
+		  return locations.peek();
+	  }
+	  
 	  public void addPoint(Location l)
 	  {
 		  locations.add(l);
-		  pathTotal+=cookies[l.getRow(),l.getCol()];
+		  pathTotal+=cookies[l.getRow()][ l.getCol()];
+	  }
+	  
+	  public Queue<Location> getPath()
+	  {
+		  return locations;
 	  }
   }
     
@@ -100,7 +116,11 @@ public class CookieMonsterStarter
    */
   private boolean goodPoint(int row, int col)  
   {  
-	  return row<cookies.length&&col<cookies[row].length&&cookies[row][col]!=-1;  
+	  return row<SIZE&&col<SIZE&&cookies[row][col]>=0;  
+  }
+  private boolean goodPoint(Location l)
+  {
+	  return l.getRow()<SIZE&&l.getCol()<SIZE&&cookies[l.getRow()][l.getCol()]>=0;  
   }
 
   /**
@@ -111,10 +131,47 @@ public class CookieMonsterStarter
   private int optimalPath()  
   {  
 	  // LOTS OF STUFF FOR HERE! Plan first!
-	  Stack paths=new Stack();
+	  //go through, check down then proceed if possible and add right location and path to stack, if not move right and repeat
+	  //print out paths as you go
+	  //keep track of cookies on each path also
+	  Stack<Path> paths=new Stack<Path>();
+	  Path bestPath=new Path();
+	  Location currentLoc=new Location(0,0);
+	  Path currentPath=new Path();
+	  ArrayList<Path> allPaths=new ArrayList<Path>();
+	  
+	  if(!goodPoint(0,0))
+		  return 0;
+	  
+	  allPaths.add(new Path());
+	  allPaths.get(0).addPoint(new Location(0,0));
+	  allPaths.get(0).addPoint(new Location(1,0));
+	  
+	  Path next=new Path();
+	  next.addPoint(new Location(0,0));
+	  next.addPoint(new Location(1,0));
+	  allPaths.add(next);
+	  
+	  paths.push(allPaths.get(0));
+	  paths.push(allPaths.get(1));
+	  
+	  while(!paths.isEmpty())
+	  {
+		  currentPath=paths.pop();
+		  currentLoc=currentPath.getLocation();
+		  
+		  if(goodPoint(currentLoc))
+		  {
+			  
+		  }
+			 
+		  
+		  
+		  
+	  }
 	  
 	  
-	  
+	  return bestPath.getPathTotal();
   }
   
   
