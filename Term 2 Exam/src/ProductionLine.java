@@ -22,6 +22,8 @@ public class ProductionLine {
 	
 	public ProductionLine(int nDisks,int maxRadius)
 	{
+		assemblyLineIn=new LinkedList<Disk>();
+		
 		for(int i=0;i<nDisks;i++)
 		{
 			assemblyLineIn.add(new Disk((int)(Math.random()*maxRadius)+1));
@@ -45,7 +47,7 @@ public class ProductionLine {
 		while(!assemblyLineIn.isEmpty())
 		{
 			if(robotArm.isEmpty()||assemblyLineIn.peek().compareTo(robotArm.peek())>0)
-				robotArm.add(assemblyLineIn.remove());
+				robotArm.push(assemblyLineIn.remove());
 			else
 				unloadRobot();
 		}

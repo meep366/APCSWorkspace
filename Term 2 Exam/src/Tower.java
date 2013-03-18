@@ -11,6 +11,11 @@ import java.util.Stack;
 public class Tower extends Stack<Disk>{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * @param args
 	 */
 	

@@ -26,7 +26,11 @@ public class ArithmeticNumberStream implements IncreasingNumberStream{
 	
 	public int nextTerm() 
 	{
-		return last+=increment;
+		if(last+increment>=Integer.MAX_VALUE)
+			return Integer.MAX_VALUE;
+		
+		last+=increment;
+		return last;
 	}
 
 	

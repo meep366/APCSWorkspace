@@ -45,11 +45,8 @@ public class EmailAddresses {
 		Set keys=addressBook.keySet();
 		Iterator i=keys.iterator();
 		Queue holding=new LinkedList();
-		
-		
-		while(i.hasNext())
-		{
-			appendSetToQueue(addressBook.get(i.next()),holding);
+	
+			holding.add(alias);
 			while(!holding.isEmpty())
 			{
 				if(!addressBook.containsKey(holding.peek()))
@@ -59,8 +56,6 @@ public class EmailAddresses {
 					appendSetToQueue(addressBook.get(holding.remove()),holding);
 				}
 			}
-				
-		}
 		
 		return result;
 	}
@@ -70,6 +65,33 @@ public class EmailAddresses {
 		// TODO Auto-generated method stub
 
 		
+		
+		Map<String,Set<String>> m=new HashMap<String,Set<String>>();
+		Set<String> t=new HashSet<String>();
+		t.add("pat@ez.edu");
+		t.add("chis@ez.edu");
+		m.put("techstaff",t);
+		Set<String> f=new HashSet<String>();
+		f.add("bobby");
+		f.add("ana");
+		f.add("sam@ez.edu");
+		m.put("faculty",f);
+		Set<String> b=new HashSet<String>();
+		b.add("bob@cs.org");
+		m.put("bobby",b);
+		Set<String> a=new HashSet<String>();
+		a.add("ana@ez.edu");
+		m.put("ana", a);
+		Set<String> all=new HashSet<String>();
+		all.add("phil@ez.edu");
+		all.add("faculty");
+		all.add("techstaff");
+		m.put("all", all);
+		
+		
+		EmailAddresses ea=new EmailAddresses(m);
+		Set<String> s=	ea.expandAlias("bobby");
+		System.out.println(s);
 		
 	}
 
