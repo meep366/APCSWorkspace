@@ -69,14 +69,27 @@ public class CookieMonsterStarter
 	  
 	  public String toString()
 	  {
-		  return "("+row+ " ,"+col+")";
+		  return "("+row+ ", "+col+")";
 	  }
   }
   
   public class Path
   {
 	  private Queue<Location> locations=new LinkedList<Location>();
-	  private int pathTotal;
+	  private int pathTotal=0;
+	  private Location current;
+	  
+	  public Path()
+	  {
+		  
+	  }
+	  
+	  public Path(Path p)
+	  {
+		  this.locations=p.locations;
+		  this.pathTotal=p.pathTotal;
+		  this.current=p.current;
+	  }
 	  
 	  public int getPathTotal()
 	  {
@@ -85,18 +98,34 @@ public class CookieMonsterStarter
 	  
 	  public Location getLocation()
 	  {
-		  return locations.peek();
+		  return current;
 	  }
 	  
-	  public void addPoint(Location l)
+	  public void add(Location l)
 	  {
 		  locations.add(l);
 		  pathTotal+=cookies[l.getRow()][ l.getCol()];
+		  current=l;
 	  }
 	  
 	  public Queue<Location> getPath()
 	  {
 		  return locations;
+	  }
+	  
+	  public String toString()
+	  {
+		  String s="";
+		  
+		  for(int i=0;i<locations.size();i++)
+		  {
+			  Location l=locations.remove();
+			  s+=l.toString();
+			  s+=", ";
+			  locations.add(l);
+		  }
+		  s+="cookies="+pathTotal;
+		  return s;
 	  }
   }
     
@@ -134,8 +163,7 @@ public class CookieMonsterStarter
 	  //go through, check down then proceed if possible and add right location and path to stack, if not move right and repeat
 	  //print out paths as you go
 	  //keep track of cookies on each path also
-	  Stack<Path> paths=new Stack<Path>();
-	  Path bestPath=new Path();
+	  Stack<Path> pathStack=new Stack<Path>();
 	  Location currentLoc=new Location(0,0);
 	  Path currentPath=new Path();
 	  ArrayList<Path> allPaths=new ArrayList<Path>();
@@ -144,34 +172,70 @@ public class CookieMonsterStarter
 		  return 0;
 	  
 	  allPaths.add(new Path());
-	  allPaths.get(0).addPoint(new Location(0,0));
-	  allPaths.get(0).addPoint(new Location(1,0));
+	  allPaths.get(0).add(new Location(0,0));
+	//  allPaths.get(0).addPoint(new Location(1,0));
+//	  
+//	  Path next=new Path();
+//	  next.addPoint(new Location(0,0));
+//	  next.addPoint(new Location(1,0));
+//	  allPaths.add(next);
 	  
-	  Path next=new Path();
-	  next.addPoint(new Location(0,0));
-	  next.addPoint(new Location(1,0));
-	  allPaths.add(next);
+	  pathStack.push(allPaths.get(0));
+//	  pathStack.push(allPaths.get(1));
 	  
-	  paths.push(allPaths.get(0));
-	  paths.push(allPaths.get(1));
-	  
-	  while(!paths.isEmpty())
+	  while(!pathStack.isEmpty())
 	  {
-		  currentPath=paths.pop();
+		  currentPath=pathStack.pop();
 		  currentLoc=currentPath.getLocation();
 		  
 		  if(goodPoint(currentLoc))
 		  {
+			  if(currentLoc.getRow()==SIZE-1&&currentLoc.getCol()==SIZE-1)
+			  {
+				  System.out.println(currentPath);
+			  }
+			  else
+			  {
+				  boolean down=goodPoint(currentLoc.getRow()+1,currentLoc.getCol());
+				  boolean right=goodPoint(currentLoc.getRow(),currentLoc.getCol()+1);
+				  
+				  if(down&&right)
+				  {
+					  Path p=new Path(currentPath);
+					  p.add(new Location(currentLoc.getRow(),currentLoc.getCol()+1));
+					  allPaths.add(p);
+					  
+					  currentPath.add(new Location(currentLoc.getRow()+1,currentLoc.getCol()));
+					  
+					  pathStack.push(p);
+					  pathStack.push(currentPath);
+				  }
+				  
+				  else if(down)
+				  {
+					  currentPath.add(new Location(currentLoc.getRow()+1,currentLoc.getCol()));
+					  pathStack.push(currentPath);
+				  }
+				  else if(right)
+				  {
+					  currentPath.add(new Location(currentLoc.getRow(),currentLoc.getCol()+1));
+					  pathStack.push(currentPath);
+				  }
+			  }
 			  
 		  }
-			 
-		  
-		  
-		  
+	  }
+	  
+	  int maxCookies=0;
+	  for(int i=0;i<allPaths.size();i++)
+	  {
+		  if(allPaths.get(i).getPathTotal()>maxCookies)
+			  maxCookies=allPaths.get(i).getPathTotal();
 	  }
 	  
 	  
-	  return bestPath.getPathTotal();
+	  
+	  return maxCookies;
   }
   
   
