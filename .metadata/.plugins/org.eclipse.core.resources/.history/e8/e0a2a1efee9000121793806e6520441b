@@ -41,79 +41,100 @@ public class CookieMonsterStarter
   private int[][] cookies = new int[SIZE][SIZE];
   
   
+  //Location class to represent a single point in the grid
   public class Location
   {
-	  private int row;
-	  private int col;
+	  private int row;	
+	  private int col;	
 	  
-	  public Location(int row,int col)
+	  public Location(int row,int col)	//regular constructor
 	  {
 		  this.row=row;
 		  this.col=col;
 	  }
 	  
-	  public int getRow()
+	  public Location(Location l)		//copy constructor
+	  {
+		  this.row=l.row;
+		  this.col=l.col;
+	  }
+	  
+	  public int getRow()	//returns row of location
 	  {
 		  return row;
 	  }
 	  
-	  public int getCol()
+	  public int getCol()	//returns col of location
 	  {
 		  return col;
 	  }
 	  
-	  public int cookiesAtLocation()
+	  public int cookiesAtLocation()	//returns number of cookies at the specific point
 	  {
 		  return cookies[row][col];
 	  }
 	  
-	  public String toString()
+	  public String toString()		//prints out location in form (x, y)
 	  {
-		  return "("+row+ " ,"+col+")";
+		  return "("+row+ ", "+col+")";
 	  }
   }
   
+  
+  
+  //Path class to represent a series of locations to the end
   public class Path
   {
-	  private Queue<Location> locations=new LinkedList<Location>();
-	  private int pathTotal=0;
+	  private Queue<Location> locations=new LinkedList<Location>();	//series of locations
+	  private int pathTotal=0;	//current path total
+	  private Location current;	//final location of path
 	  
-	  public Path()
+	  public Path()	//default constructor
 	  {
 		  
 	  }
 	  
-	  public Path(Path p)
+	  public Path(Path p)	//copy constructor
 	  {
-		  this.locations=p.locations;
+		  this.locations=new LinkedList<Location>(p.locations);
 		  this.pathTotal=p.pathTotal;
+		  this.current=new Location(p.current);
 	  }
 	  
-	  public int getPathTotal()
+	  public int getPathTotal()	//returns total number of cookies up to current spot
 	  {
 		  return pathTotal;
 	  }
 	  
-	  public Location getLocation()
+	  public Location getLocation()	//returns current spot of path
 	  {
-		  return locations.peek();
+		  return current;
 	  }
 	  
-	  public void add(Location l)
+	  public void add(Location l)	//adds a new location to queue, updates number of cookies, and updates current location
 	  {
 		  locations.add(l);
 		  pathTotal+=cookies[l.getRow()][ l.getCol()];
+		  current=l;
 	  }
 	  
-	  public Queue<Location> getPath()
+	  public Queue<Location> getPath()		//returns entire path
 	  {
 		  return locations;
 	  }
 	  
-	  public String toString()
+	  public String toString()	//prints out locations of path then number of cookies such as (x, y), (x,y+1), cookies=11
 	  {
 		  String s="";
 		  
+		  for(int i=0;i<locations.size();i++)
+		  {
+			  Location l=locations.remove();
+			  s+=l.toString();
+			  s+=", ";
+			  locations.add(l);
+		  }
+		  s+="cookies="+pathTotal;
 		  return s;
 	  }
   }
@@ -131,6 +152,7 @@ public class CookieMonsterStarter
   /**
    *  Returns true if (row, col) is within the array and that position is
    *  not a barrel (-1); false otherwise
+   *  
    */
   private boolean goodPoint(int row, int col)  
   {  
@@ -152,62 +174,70 @@ public class CookieMonsterStarter
 	  //go through, check down then proceed if possible and add right location and path to stack, if not move right and repeat
 	  //print out paths as you go
 	  //keep track of cookies on each path also
-	  Stack<Path> pathStack=new Stack<Path>();
-	  Path bestPath=new Path();
-	  Location currentLoc=new Location(0,0);
-	  Path currentPath=new Path();
-	  ArrayList<Path> allPaths=new ArrayList<Path>();
 	  
-	  if(!goodPoint(0,0))
+	  
+	  Stack<Path> pathStack=new Stack<Path>();				//stack of paths to be looked at
+	  Location currentLoc=new Location(0,0);				//current location of current path
+	  Path currentPath=new Path();							//current path being looked at
+	  ArrayList<Path> allPaths=new ArrayList<Path>();		//list of all possible paths
+	  int maxCookies=0;										//cookies on best path
+	  int indexOfCookies=-1;
+	  
+	  if(!goodPoint(0,0))	//don't do anything if original isn't good
 		  return 0;
 	  
-	  allPaths.add(new Path());
+	  allPaths.add(new Path());					//original path with starting point
 	  allPaths.get(0).add(new Location(0,0));
-	//  allPaths.get(0).addPoint(new Location(1,0));
-//	  
-//	  Path next=new Path();
-//	  next.addPoint(new Location(0,0));
-//	  next.addPoint(new Location(1,0));
-//	  allPaths.add(next);
-	  
+
 	  pathStack.push(allPaths.get(0));
-//	  pathStack.push(allPaths.get(1));
 	  
-	  while(!pathStack.isEmpty())
+	  while(!pathStack.isEmpty())		//stop condition is empty stack
 	  {
-		  currentPath=pathStack.pop();
+		  currentPath=pathStack.pop();				//update current path and location
 		  currentLoc=currentPath.getLocation();
 		  
-		  if(goodPoint(currentLoc))
+		  if(goodPoint(currentLoc))		//checking if good point
 		  {
-			  boolean down=goodPoint(currentLoc.getRow()+1,currentLoc.getCol());
-			  boolean right=goodPoint(currentLoc.getRow(),currentLoc.getCol()+1);
-			  
-			  if(down&&right)
+			  if(currentLoc.getRow()==SIZE-1&&currentLoc.getCol()==SIZE-1)	//checking if end of path
 			  {
-				  Path p=new Path(currentPath);
-				  p.add(new Location(currentLoc.getRow(),currentLoc.getCol()+1));
+				  if(currentPath.getPathTotal()>maxCookies)	//check for more cookies on current path
+					  maxCookies=currentPath.getPathTotal();
 				  
-				  currentPath.add(new Location(currentLoc.getRow()+1,currentLoc.getCol()));
+				  System.out.println(currentPath);
+			  }
+			  else
+			  {
+				  boolean down=goodPoint(currentLoc.getRow()+1,currentLoc.getCol());		//checking both down and right locations
+				  boolean right=goodPoint(currentLoc.getRow(),currentLoc.getCol()+1);
+				  
+				  if(down&&right)		//if both, create new path, add points to both current and new and push them onto stack
+				  {
+					  Path p=new Path(currentPath);
+					  p.add(new Location(currentLoc.getRow(),currentLoc.getCol()+1));
+					  allPaths.add(p);
+					  
+					  currentPath.add(new Location(currentLoc.getRow()+1,currentLoc.getCol()));
+					  
+					  pathStack.push(p);
+					  pathStack.push(currentPath);
+				  }
+				  
+				  else if(down)		//if down, update path and push back onto stack
+				  {
+					  currentPath.add(new Location(currentLoc.getRow()+1,currentLoc.getCol()));
+					  pathStack.push(currentPath);
+				  }
+				  else if(right)	//if right, update path and push back onto stack
+				  {
+					  currentPath.add(new Location(currentLoc.getRow(),currentLoc.getCol()+1));
+					  pathStack.push(currentPath);
+				  }
 			  }
 			  
-			  else if(down)
-			  {
-				  currentPath.add(new Location(currentLoc.getRow()+1,currentLoc.getCol()));
-			  }
-			  else if(right)
-			  {
-				  currentPath.add(new Location(currentLoc.getRow(),currentLoc.getCol()+1));
-			  }
 		  }
-			 
-		  
-		  
-		  
 	  }
 	  
-	  
-	  return bestPath.getPathTotal();
+	  return maxCookies;
   }
   
   

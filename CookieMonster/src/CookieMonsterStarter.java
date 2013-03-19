@@ -180,7 +180,7 @@ public class CookieMonsterStarter
 	  Location currentLoc=new Location(0,0);				//current location of current path
 	  Path currentPath=new Path();							//current path being looked at
 	  ArrayList<Path> allPaths=new ArrayList<Path>();		//list of all possible paths
-	  int maxCookies=0;										//cookies on best path
+	  Path bestPath=new Path();								//best path
 	  
 	  if(!goodPoint(0,0))	//don't do anything if original isn't good
 		  return 0;
@@ -199,8 +199,8 @@ public class CookieMonsterStarter
 		  {
 			  if(currentLoc.getRow()==SIZE-1&&currentLoc.getCol()==SIZE-1)	//checking if end of path
 			  {
-				  if(currentPath.getPathTotal()>maxCookies)	//check for more cookies on current path
-					  maxCookies=currentPath.getPathTotal();
+				  if(currentPath.getPathTotal()>bestPath.getPathTotal())	//check for more cookies on current path
+					  bestPath=currentPath;
 				  
 				  System.out.println(currentPath);
 			  }
@@ -235,7 +235,8 @@ public class CookieMonsterStarter
 			  
 		  }
 	  }
-	  return maxCookies;
+	  System.out.println("Best Path: "+bestPath.getPath());
+	  return bestPath.getPathTotal();
   }
   
   
