@@ -1,0 +1,30 @@
+import java.util.Comparator;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MovieComparator implements Comparator<Movie>{
+
+	/**
+	 * @param args
+	 */
+	
+
+	
+	public int compare(Movie m1, Movie m2) 
+	{
+		
+		return 0;
+	}
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+}
