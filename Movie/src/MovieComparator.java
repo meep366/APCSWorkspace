@@ -17,18 +17,20 @@ public class MovieComparator implements Comparator<Movie>{
 	//0-movie title
 	//1-director
 	//2-num of actors
-	private int compareValue=-1;
+	private int type=-1;
 	
 	public MovieComparator(int type)
 	{
-		compareValue=type;
+		this.type=type;
 	}
 	
 	public int compare(Movie m1, Movie m2) 
 	{
 		if(type==0)
-			return m1.getTitle();
-		return 0;
+			return m1.getTitle().compareTo(m2.getTitle());
+		else 
+			return m1.getDirector().compareTo(m2.getDirector());
+
 	}
 
 	
