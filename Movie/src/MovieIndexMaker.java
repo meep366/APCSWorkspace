@@ -2,6 +2,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.TreeSet;
 import java.io.*;
 
 /**
@@ -11,19 +13,21 @@ import java.io.*;
  * Attribution: Jack Croft, Griffin Medendorp
  * Errata: Some problems with extracting all of the information from movies.txt such as the year or have more than
  * just one first and last name for the director
- * Extra Errata: OutOfBoundsError:Line 141
+ * 
  */
 public class MovieIndexMaker
 {
     private PriorityQueue<Movie> titleSorted; //movies sorted by title
     private PriorityQueue<Movie> directorSorted; //movies are sorted by the director's name
     private PriorityQueue<Movie> numActorSorted; //movies are sorted by the number of actors
+    private Set<Person> allActors; //all the actors
     private String fileName;
 
     public MovieIndexMaker() {
         titleSorted = new PriorityQueue<Movie>(10, new MovieComparator(0));
         directorSorted = new PriorityQueue<Movie>(10, new MovieComparator(1));
         numActorSorted = new PriorityQueue<Movie>(10, new MovieComparator(2));
+        allActors=new TreeSet<Person>();
     }
     
     /**
@@ -59,6 +63,8 @@ public class MovieIndexMaker
             }
         }
         
+        haveGoodFileName=false;
+        
         /* Create output file */
         PrintWriter outputFile = null;
         while (!haveGoodFileName) {
@@ -79,32 +85,46 @@ public class MovieIndexMaker
         }
 
         /* Grab correct PriorityQueue */
-        PriorityQueue<Movie> queue = null; //the later code will used this name for one of the three PriorityQueue option
+        PriorityQueue queue = null; //the later code will used this name for one of the four PriorityQueue option
         if (sortMethod == 0) //sort by movie title
             queue = titleSorted;
         else if (sortMethod == 1) //sort by director's name
             queue = directorSorted;
         else if (sortMethod == 2) //sort by number of actors
             queue = numActorSorted;
+        else if(sortMethod==3)
+        	queue=titleSorted;
         else {
             System.out.println("Invalid sorting option!!");
             return;
         }
         
-        /* Update the Queue */
-        String line;
-        try {
-            while ((line = inputFile.readLine()) != null) {
-                queue.add(getMovieFromLine(line));
-            }
-        }
-        catch (IOException e) {
-            System.out.println("Could not read the file");
-        }
+        
+        
+	       /* Update the Queue */
+	       String line;
+	       try {
+	    	   while ((line = inputFile.readLine()) != null) {
+	    		   queue.add(getMovieFromLine(line));
+                }
+	        }
+	        catch (IOException e) {
+	            System.out.println("Could not read the file");
+	        }
+	       
+	       if(sortMethod==3)	//case for sorting actors, not movies
+	       {
+	    	   PriorityQueue<Person> finalSort=new PriorityQueue<Person>();
+	    	   
+	       }
+        
+   
 
         /* Output Queue to new File */
         while (!queue.isEmpty())
+        {
             outputFile.println(queue.remove());
+        }
         //!WARNING! the previous line requires that the Movie class has a suitable toString() method
 
         /* Close the files */
@@ -136,7 +156,6 @@ public class MovieIndexMaker
         
         
         
-        
         /* Get Actors' Name */
         
         //change "/t" to "Dir:"-1
@@ -145,12 +164,16 @@ public class MovieIndexMaker
         ArrayList<Person> actorFullNames = new ArrayList<Person>(); //for every two names in nameArray, there will be one actor's name
         
         
+       
         
-        while (actorNames.indexOf(",") >= 0) { //while there are still instances of 
-		String name = actorNames .substring(0,line.indexOf(",")); //represents the entire name of a person
-		actorNames = actorNames.substring(line.indexOf(",") + 2); //actorNames, just without the first name
+        while (actorNames.indexOf(",") >= 0) { //while there are still instances of
+        	
+        	
+		String name = actorNames.substring(0,actorNames.indexOf(",")); //represents the entire name of a person
+		actorNames = actorNames.substring(actorNames.indexOf(",") + 2); //actorNames, just without the first name
 		
 		actorFullNames.add(new Person(name.substring(0,name.indexOf(" ")), name.substring(name.lastIndexOf(" "))));//cuts out any middle names
+		 
 	}
 	//actorNames should still have one more name in it
 	actorFullNames.add(new Person(actorNames.substring(0,actorNames.indexOf(" ")), actorNames.substring(actorNames.lastIndexOf(" "))));//cuts out any middle names
@@ -168,7 +191,7 @@ public class MovieIndexMaker
     public static void main(String[] args)
     {
     	MovieIndexMaker m=new MovieIndexMaker();
-    	m.sort(0);
+    	m.sort(1);
     }
 
 }

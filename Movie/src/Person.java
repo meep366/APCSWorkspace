@@ -25,4 +25,9 @@ public class Person  implements Comparable<Person>
 		String otherName = other.lastName + other.firstName;
 		return thisName.compareTo(otherName);
 	}
+	
+	public String toString()
+	{
+		return lastName+", "+firstName;
+	}
 }

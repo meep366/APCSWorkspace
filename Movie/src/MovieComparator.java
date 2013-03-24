@@ -28,8 +28,10 @@ public class MovieComparator implements Comparator<Movie>{
 	{
 		if(type==0)
 			return m1.getTitle().compareTo(m2.getTitle());
-		else 
+		else if(type==1)
 			return m1.getDirector().compareTo(m2.getDirector());
+		else
+			return m1.getNumActors()-m2.getNumActors();
 
 	}
 

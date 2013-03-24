@@ -33,5 +33,15 @@ private ArrayList<Person> actors;
 		return actors;
 	}
 	
+	public int getNumActors()
+	{
+		return actors.size();
+	}
+	
+	public String toString()
+	{
+		return title;
+	}
+	
 }
 
