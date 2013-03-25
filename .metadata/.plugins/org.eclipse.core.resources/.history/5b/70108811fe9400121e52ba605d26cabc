@@ -1,4 +1,4 @@
-
+package movie;
 
 import java.util.*;
 import java.io.*;
@@ -246,9 +246,9 @@ public class MovieIndexMaker
     public static void main(String[] args)
     {
     	MovieIndexMaker m=new MovieIndexMaker();
-    	m.sort(0);
+    	//m.sort(0);
     	//m.sort(1);
-    	//m.sort(2);
+    	m.sort(2);
     }
 
 }
