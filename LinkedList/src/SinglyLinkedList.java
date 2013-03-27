@@ -48,32 +48,51 @@ public class SinglyLinkedList implements Iterable<Object>
   // otherwise returns false.
   public boolean contains(Object obj)
   {
-    __________________________________
-    ...
+	  return indexOf(obj)>=0;
   }
 
   // Returns the index of the first element in equal to obj;
-  // if not found, retunrs -1.
+  // if not found, returns -1.
   public int indexOf(Object obj)
   {
-    __________________________________
-    ...
+	  	int counter=0;
+	  	for(ListNode node=head;node!=null;node=node.getNext(),counter++)
+	  	{
+	  		if(obj.equals(head.getValue()))
+	  			return counter;
+	  	}
+	  
+		 return -1;
   }
 
   // Adds obj to this collection.  Returns true if successful;
   // otherwise returns false.
   public boolean add(Object obj)
   {
-    __________________________________
-    ...
+	  ListNode node=new ListNode(obj,null);
+	  
+	  if(isEmpty())
+    	head=node;
+	  else
+	  {
+		  ListNode tail=head;
+		  for(int i=0;i<nodeCount;i++)
+		  {
+			  tail=tail.getNext();
+		  }
+		  tail.setNext(node);
+	  }
+	  
+	  
+		  
+	  return true;
   }
 
   // Removes the first element that is equal to obj, if any.
   // Returns true if successful; otherwise returns false.
   public boolean remove(Object obj)
   {
-    __________________________________
-    ...
+    
   }
 
   // Returns the i-th element.
