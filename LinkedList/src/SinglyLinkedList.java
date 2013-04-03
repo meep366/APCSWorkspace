@@ -31,6 +31,11 @@ public class SinglyLinkedList implements Iterable<Object>
 
     nodeCount = values.length;
   }
+  
+  private boolean inBounds(int i)
+  {
+	  return i>=nodeCount||i<0;
+  }
 
   // Returns true if this list is empty; otherwise returns false.
   public boolean isEmpty()
@@ -69,6 +74,12 @@ public class SinglyLinkedList implements Iterable<Object>
   // otherwise returns false.
   public boolean add(Object obj)
   {
+	  if(nodeCount!=0)
+		  add(nodeCount-1,obj);
+	  else
+		  add(0,obj);
+	  
+	  /**
 	  ListNode node=new ListNode(obj,null);
 	  
 	  if(isEmpty())
@@ -84,52 +95,145 @@ public class SinglyLinkedList implements Iterable<Object>
 	  }
 	  
 	  
-		  
+	  nodeCount++; */
 	  return true;
   }
 
   // Removes the first element that is equal to obj, if any.
   // Returns true if successful; otherwise returns false.
-  public boolean remove(Object obj)
+  public Object remove(Object obj)
   {
-    
+	  Object result=null;
+	  ListNode before=head;
+	  
+	  for(ListNode node=head;node!=null;node=node.getNext())
+	  {
+		  if(head.equals(obj))
+		  {
+			  result=node.getValue();
+			  before.setNext(node.getNext());
+			  nodeCount--;
+		  }
+		  else
+			  before=node;
+	  }
+	  
+	  return result;
   }
 
   // Returns the i-th element.
   public Object get(int i)
   {
-    __________________________________
-    ...
+	  if(!inBounds(i))
+		  return null;
+	  
+	  int counter=0;
+	  Object result=null;
+	  
+	  for(ListNode node=head;node!=null;node=node.getNext(),counter++)
+	  {
+		  if(counter==i)
+			  result=node.getValue();
+	  }
+	  
+	  return result;
   }
 
   // Replaces the i-th element with obj and returns the old value.
   public Object set(int i, Object obj)
   {
-    __________________________________
-    ...
+	  if(!inBounds(i))
+		  return null;
+	  
+	  
+	  int counter=0;
+	  Object result=null;
+	  
+	  for(ListNode node=head;node!=null;node=node.getNext(),counter++)
+	  {
+		  if(counter==i)
+		  {
+			  result=node.getValue();
+			  node.setValue(obj);
+		  }
+	  }
+	  
+	  return result;
   }
 
   // Inserts obj to become the i-th element. Increments the size
   // of the list by one.
   public void add(int i, Object obj)
   {
-    __________________________________
-    ...
+	  if(!inBounds(i))
+		  return;
+	  
+	  System.out.println("check");
+	  int counter=0;
+	  ListNode before=head;
+	  
+	  
+	  
+	  for(ListNode node=head;node!=null;node=node.getNext(),counter++)
+	  {
+		  if(counter==i)
+		  {
+			  before.setNext(new ListNode(obj,node));
+			  nodeCount++;
+		  }
+		  else
+		  {
+			  before=node;
+		  }
+	  }
+	  
+	  if(head==null)
+		  head=new ListNode(obj,null);
+	  
   }
 
   // Removes the i-th element and returns its value.
   // Decrements the size of the list by one.
   public Object remove(int i)
   {
-    __________________________________
-    ...
+	  if(!inBounds(i))
+		  return null;
+	  
+	  
+	  int counter=0;
+	  Object result=null;
+	  ListNode before=head;
+	  
+	  for(ListNode node=head;node!=null;node=node.getNext(),counter++)
+	  {
+		  if(counter==i)
+		  {
+			  result=node.getValue();
+			  before.setNext(node.getNext());
+		  }
+		  else
+		  {
+			  before=node;
+		  }
+	  }
+	  
+	  return result;
   }
 
   // Returns a string representation of this list.
   public String toString()
   {
-    __________________________________
-    ...
+	  String result="[";
+	  
+	  for(ListNode node=head;node!=null;node=node.getNext())
+	  {
+		  result+=node.getValue().toString();
+		  result+=", ";
+	  }
+	  result+="]";
+	  
+	  
+	  return result;
   }
 
   // Returns an iterator for this collection.
@@ -137,5 +241,17 @@ public class SinglyLinkedList implements Iterable<Object>
   {
     return new SinglyLinkedListIterator(head);
   }
-}
 
+
+  public static void main(String[] args)
+  {
+	  SinglyLinkedList list=new SinglyLinkedList();
+	  
+	  list.add(5);
+	  list.add(3);
+	  list.add(7);
+	  
+	  System.out.println(list);
+	  
+  }
+}
