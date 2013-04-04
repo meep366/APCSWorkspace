@@ -34,7 +34,10 @@ public class SinglyLinkedList implements Iterable<Object>
   
   private boolean inBounds(int i)
   {
-	  return i>=nodeCount||i<0;
+	  if(nodeCount==0)
+		  return i==0;
+	  
+	  return i<nodeCount&&i>=0;
   }
 
   // Returns true if this list is empty; otherwise returns false.
@@ -63,39 +66,19 @@ public class SinglyLinkedList implements Iterable<Object>
 	  	int counter=0;
 	  	for(ListNode node=head;node!=null;node=node.getNext(),counter++)
 	  	{
-	  		if(obj.equals(head.getValue()))
+	  		if(obj.equals(node.getValue()))
 	  			return counter;
 	  	}
-	  
-		 return -1;
+		 
+	  	return -1;
   }
 
   // Adds obj to this collection.  Returns true if successful;
   // otherwise returns false.
   public boolean add(Object obj)
   {
-	  if(nodeCount!=0)
-		  add(nodeCount-1,obj);
-	  else
-		  add(0,obj);
+	  add(nodeCount,obj);
 	  
-	  /**
-	  ListNode node=new ListNode(obj,null);
-	  
-	  if(isEmpty())
-    	head=node;
-	  else
-	  {
-		  ListNode tail=head;
-		  for(int i=0;i<nodeCount;i++)
-		  {
-			  tail=tail.getNext();
-		  }
-		  tail.setNext(node);
-	  }
-	  
-	  
-	  nodeCount++; */
 	  return true;
   }
 
@@ -108,10 +91,18 @@ public class SinglyLinkedList implements Iterable<Object>
 	  
 	  for(ListNode node=head;node!=null;node=node.getNext())
 	  {
-		  if(head.equals(obj))
+		  if(node.getValue().equals(obj))
 		  {
-			  result=node.getValue();
-			  before.setNext(node.getNext());
+			  if(node==head)
+			  {
+				  result=head.getValue();
+				  head=head.getNext();
+			  }
+			  else
+			  {
+				  result=node.getValue();
+			  	  before.setNext(node.getNext());
+			  }
 			  nodeCount--;
 		  }
 		  else
@@ -142,9 +133,9 @@ public class SinglyLinkedList implements Iterable<Object>
   // Replaces the i-th element with obj and returns the old value.
   public Object set(int i, Object obj)
   {
+	  
 	  if(!inBounds(i))
 		  return null;
-	  
 	  
 	  int counter=0;
 	  Object result=null;
@@ -165,31 +156,45 @@ public class SinglyLinkedList implements Iterable<Object>
   // of the list by one.
   public void add(int i, Object obj)
   {
-	  if(!inBounds(i))
+	  if(nodeCount==0&&i!=0)
+		  return;
+	  if(!(i<=nodeCount&&i>=0))
 		  return;
 	  
-	  System.out.println("check");
 	  int counter=0;
 	  ListNode before=head;
 	  
-	  
-	  
-	  for(ListNode node=head;node!=null;node=node.getNext(),counter++)
+	  if(head==null)
+	  {
+		  head=new ListNode(obj,null);
+		  nodeCount++;
+		  return;
+	  }
+	 
+	  for(ListNode node=head;counter<=nodeCount;node=node.getNext(),counter++)
 	  {
 		  if(counter==i)
-		  {
-			  before.setNext(new ListNode(obj,node));
+		  {  
+			  if(i==nodeCount)
+			  {
+				  before.setNext(new ListNode(obj, null));
+			  }
+			  else if(i==0)
+			  {
+				  head=new ListNode(obj,head);
+			  }
+			  else
+			  {
+				  before.setNext(new ListNode(obj,node));
+			  }
 			  nodeCount++;
+			  return;
 		  }
 		  else
 		  {
 			  before=node;
 		  }
 	  }
-	  
-	  if(head==null)
-		  head=new ListNode(obj,null);
-	  
   }
 
   // Removes the i-th element and returns its value.
@@ -199,7 +204,6 @@ public class SinglyLinkedList implements Iterable<Object>
 	  if(!inBounds(i))
 		  return null;
 	  
-	  
 	  int counter=0;
 	  Object result=null;
 	  ListNode before=head;
@@ -208,8 +212,17 @@ public class SinglyLinkedList implements Iterable<Object>
 	  {
 		  if(counter==i)
 		  {
-			  result=node.getValue();
-			  before.setNext(node.getNext());
+			  if(counter==0)
+			  {
+				  result=head.getValue();
+				  head=head.getNext();
+			  }
+			  else
+			  {
+				  result=node.getValue();
+				  before.setNext(node.getNext());
+			  }
+			  nodeCount--;
 		  }
 		  else
 		  {
@@ -228,7 +241,10 @@ public class SinglyLinkedList implements Iterable<Object>
 	  for(ListNode node=head;node!=null;node=node.getNext())
 	  {
 		  result+=node.getValue().toString();
-		  result+=", ";
+		  
+		  if(node.getNext()!=null)
+			  result+=", ";
+		  
 	  }
 	  result+="]";
 	  
@@ -247,10 +263,13 @@ public class SinglyLinkedList implements Iterable<Object>
   {
 	  SinglyLinkedList list=new SinglyLinkedList();
 	  
-	  list.add(5);
-	  list.add(3);
-	  list.add(7);
+	 
+	  list.add("cool");
+	  list.add("beans");
+	  list.add("thanks");
+	  list.add("man");
 	  
+	  list.remove("beans");
 	  System.out.println(list);
 	  
   }

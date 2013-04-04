@@ -1724,3 +1724,39 @@ Caused by: org.eclipse.swt.SWTException: Widget is disposed
 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
 	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:119)
 	... 52 more
+!SESSION 2013-04-03 22:31:01.782 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:31:59.149
+!MESSAGE Cannot find a free socket for the debugger
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:32:10.673
+!MESSAGE Cannot find a free socket for the debugger
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:32:29.048
+!MESSAGE Cannot find a free socket for the debugger
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:32:37.114
+!MESSAGE Cannot find a free socket for the debugger
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:32:48.139
+!MESSAGE Cannot find a free socket for the debugger
+!SESSION 2013-04-03 22:33:17.452 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:33:52.560
+!MESSAGE Cannot find a free socket for the debugger
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 22:44:38.942
+!MESSAGE Cannot find a free socket for the debugger
+
+!ENTRY org.eclipse.jdt.launching 4 118 2013-04-03 23:14:36.742
+!MESSAGE Cannot find a free socket for the debugger

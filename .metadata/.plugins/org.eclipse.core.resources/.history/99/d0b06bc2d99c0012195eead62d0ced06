@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class LinkedListWithTail {
+
+	/**
+	 * @param args
+	 */
+	
+	private ListNode head;
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
