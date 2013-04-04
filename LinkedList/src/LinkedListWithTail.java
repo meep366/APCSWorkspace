@@ -29,19 +29,32 @@ public class LinkedListWithTail {
 	
 	public Object peek()
 	{
-		return head;
+		if(isEmpty())
+			return null;
+		return head.getValue();
 	}
 	
 	public Object remove()
 	{
-		Object result=head;
+		if(isEmpty())
+			return null;
+		
+		Object result=head.getValue();
 		head=head.getNext();
 		return result;
 	}
 	
 	public boolean add(Object obj)
 	{
-		tail.setNext(new ListNode(obj,null));
+		if(isEmpty())
+		{
+			head=new ListNode(obj,tail);
+		}
+		else
+		{
+			tail.setNext(new ListNode(obj,null));
+		}
+	
 		return true;
 	}
 	

@@ -262,15 +262,31 @@ public class SinglyLinkedList implements Iterable<Object>
   public static void main(String[] args)
   {
 	  SinglyLinkedList list=new SinglyLinkedList();
+	  System.out.println(list.isEmpty()); //should be true
 	  
-	 
 	  list.add("cool");
 	  list.add("beans");
 	  list.add("thanks");
 	  list.add("man");
 	  
-	  list.remove("beans");
-	  System.out.println(list);
+	  System.out.println(list); //should be [cool, beans, thanks, man]
+	  System.out.println(list.size());	//should be 4
+	  System.out.println(list.contains("cool")); //should be true
+	  System.out.println(list.contains("fdkj")); //should be false
+	  System.out.println(list.indexOf("thanks")); //should be 2
+	  System.out.println(list.indexOf("hadskj")); //should be -1
 	  
+	  list.remove("cool");
+	  System.out.println(list); //should be [beans, thanks, man]
+	  
+	  list.add(0,"cool");
+	  System.out.println(list); //should be [cool, beans, thanks, man]
+	  System.out.println(list.get(1)); //should be beans
+	  
+	  list.set(3, "maybe");
+	  System.out.println(list); //should be [cool, beans, thanks, maybe]
+	  
+	  list.remove(3);
+	  System.out.println(list); //should be [cool, beans, thanks]
   }
 }
