@@ -1,0 +1,54 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class ListProblems {
+
+	/**
+	 * @param args
+	 */
+	
+	//Problem 2
+	
+	public boolean hasTwo(ListNode head)
+	{
+		return head.getNext()!=null;
+	}
+	
+	//Problem 3
+	
+	public int sizeFor(ListNode head)
+	{
+		int counter=0;
+		for(ListNode node=head;node!=null;node=node.getNext())
+		{
+			System.out.println(node);
+			counter++;
+		}
+		System.out.println(counter);
+		return counter;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ListProblems lp=new ListProblems();
+		SinglyLinkedList s= new SinglyLinkedList();
+		ListNode one=null;
+		ListNode two=null;
+		ListNode three=null;
+		s.add("cool");
+		s.add("neat");
+		s.add("sweet");
+		one=new ListNode("cool",two);
+		two=new ListNode("neat",three);
+		three=new ListNode("sweet",null);
+		lp.sizeFor(one);
+		
+	}
+
+}

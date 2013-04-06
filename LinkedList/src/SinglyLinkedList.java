@@ -1,3 +1,11 @@
+/**
+ * @author croftj
+ * Date of Completion: 4/5/13
+ * Attribution:none
+ * All work here is honestly obtained and is my own
+ */
+
+
 // Implements a singly-linked list.
 
 import java.util.Iterator;
@@ -258,7 +266,7 @@ public class SinglyLinkedList implements Iterable<Object>
     return new SinglyLinkedListIterator(head);
   }
 
-
+  //comprehensive testing all output and copied into test file
   public static void main(String[] args)
   {
 	  SinglyLinkedList list=new SinglyLinkedList();

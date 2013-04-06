@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class ListProblems {
+
+	/**
+	 * @param args
+	 */
+	
+	//Problem 2
+	
+	public boolean hasTwo(ListNode head)
+	{
+		return head.getNext()!=null;
+	}
+	
+	//Problem 3
+	
+	public int size(ListNode head)
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
