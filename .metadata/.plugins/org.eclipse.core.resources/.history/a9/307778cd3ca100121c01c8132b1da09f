@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class BinaryTree {
+
+	/**
+	 * @param args
+	 */
+	
+	private TreeNode root;
+	
+	
+	public int countNodes()
+	{
+		return recCountNodes(root);
+	}
+	
+	private int recCountNodes(TreeNode r)
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
