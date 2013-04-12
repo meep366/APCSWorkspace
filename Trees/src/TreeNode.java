@@ -28,4 +28,5 @@ public class TreeNode
   public void setValue(Object theNewValue) { value = theNewValue; }
   public void setLeft(TreeNode theNewLeft) { left = theNewLeft; }
   public void setRight(TreeNode theNewRight) { right = theNewRight; }
+  public String toString() { return value.toString(); }
 }
