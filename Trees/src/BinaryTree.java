@@ -236,7 +236,7 @@ public class BinaryTree {
 		
 		return printLevel(node.getRight(),level,current+1,str)+printLevel(node.getLeft(),level,current+1,str);
 	}
-	
+	//adds an object to the tree in an iterative fashion
 	public boolean addIterative(Object value)
 	{
 		boolean finished=false;
@@ -274,7 +274,7 @@ public class BinaryTree {
 		}
 		return true;	
 	}
-	
+	//returns true if the tree is fully balanced, with the right and left subtrees being equally big all the way down, false otherwise
 	public boolean fullyBalanced()
 	{
 		int depth=depth();
@@ -287,7 +287,7 @@ public class BinaryTree {
 		}
 		return counter==nodeCount();
 	}
-	
+	//returns the greatest value in an unsorted tree
 	public Object maxUnsorted()
 	{
 		return maxUnsorted(root);
@@ -297,7 +297,6 @@ public class BinaryTree {
 	{
 		if(node==null)
 			return null;
-		
 		
 		if(node.getLeft()==null&&node.getRight()==null)
 			return node.getValue();
@@ -335,8 +334,89 @@ public class BinaryTree {
 			return maxRight;
 		
 		return maxLeft;
-			
+	}
+	//returns the smallest value in an unsorted tree
+	public Object minUnsorted()
+	{
+		return minUnsorted(root);
+	}
+	
+	private Object minUnsorted(TreeNode node)
+	{
+		if(node==null)
+			return null;
 		
+		if(node.getLeft()==null&&node.getRight()==null)
+			return node.getValue();
+		
+		Integer diffLeft=null;
+		Integer diffRight=null;
+		Object minLeft=minUnsorted(node.getLeft());
+		Object minRight=minUnsorted(node.getRight());
+		
+		if(node.getLeft()!=null)
+			diffLeft=((Comparable<Object>) node.getValue()).compareTo(minLeft);
+		
+		if(node.getRight()!=null)
+			diffRight=((Comparable<Object>) node.getValue()).compareTo(minRight);
+		
+		if(diffLeft==null)
+		{
+			if(diffRight<0)
+				return node.getValue();
+			
+			return minRight;
+		}
+		
+		if(diffRight==null)
+		{
+			if(diffLeft<0)
+				return node.getValue();
+			
+			return minLeft;
+		}
+		
+		int diffBetween=((Comparable<Object>) minRight).compareTo(minLeft);
+		
+		if(diffBetween<0)
+			return minRight;
+		
+		return minLeft;
+	}
+	//returns true if in order, false otherwise
+	public boolean ordered()
+	{
+		return ordered(root);
+	}
+	
+	private boolean ordered(TreeNode node)
+	{
+		if(node==null)
+			return true;
+		
+		if(node.getRight()==null&&node.getLeft()==null)
+			return true;
+		
+		if(node.getRight()==null)
+		{
+			if(((Comparable<Object>) node.getLeft().getValue()).compareTo(node.getValue())<0)
+				return ordered(node.getLeft());
+			else
+				return false;
+		}
+		
+		if(node.getLeft()==null)
+		{
+			if(((Comparable<Object>) node.getRight().getValue()).compareTo(node.getValue())>0)
+				return ordered(node.getRight());
+			else
+				return false;
+		}
+		
+		if((((Comparable<Object>) node.getRight().getValue()).compareTo(node.getValue())>0)&&(((Comparable<Object>) node.getLeft().getValue()).compareTo(node.getValue())<0))
+			return ordered(node.getRight())&&ordered(node.getLeft());
+		else
+			return false;
 	}
 	
 	//returns a string of all the values in the tree
@@ -386,9 +466,7 @@ public class BinaryTree {
 		System.out.println(bt.fullyBalanced());  //should be false
 		System.out.println(bt2.fullyBalanced());  //should be true
 		System.out.println(bt.maxUnsorted());	//should be thanks
-		
-		
-		
-		//remove bonus
+		System.out.println(bt.minUnsorted());   //should be beans
+		System.out.println(bt.ordered());   //should be true
 	}
 }
