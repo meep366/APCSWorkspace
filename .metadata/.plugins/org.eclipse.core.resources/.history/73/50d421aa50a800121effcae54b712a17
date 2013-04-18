@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MorseCodeDecoder {
+
+	/**
+	 * @param args
+	 */
+	private final String LEFT="-";
+	private final String RIGHT=".";
+	private TreeNode root;
+	private String[] morseCode={"-T","--M","---O","--.G","--.-Q","--..Z","-.N","-.-K","-.--Y","-.-.C","-..D","-...B",".E",".-A",".--W",".---J",".--.P",".-.R",".-..L","..I","..-U","..-.F","...S","...-V","....H"};
+	
+	public MorseCodeDecoder()
+	{
+		root=new TreeNode("");
+		for(String letter:morseCode)
+		{
+			setup(root,letter);
+		}
+	}
+	
+	private void setup(TreeNode node,String letter)
+	{
+		String firstLetter=letter.charAt(0)+"";
+		if(firstLetter.equals(LEFT))
+		{
+			setup(node.getLeft(),letter.substring(1));
+		}
+		else if(firstLetter.equals(RIGHT))
+		{
+			setup(node.getRight(),letter.substring(1));
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

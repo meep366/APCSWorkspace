@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MorseCodeDecoder {
+
+	/**
+	 * @param args
+	 */
+	private final String LEFT="-";
+	private final String RIGHT=".";
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
