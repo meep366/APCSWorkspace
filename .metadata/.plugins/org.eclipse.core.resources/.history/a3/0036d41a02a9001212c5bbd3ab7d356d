@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class NumberCube {
+
+	/**
+	 * @param args
+	 */
+	
+	private int[] tosses;
+	
+	public void setTosses(int[] tossees)
+	{
+		this.tosses=tosses;
+	}
+	
+	public static int toss()
+	{
+		return (int)Math.random()*6+1;
+	}
+	
+	public static int[] getCubeTosses(NumberCube cube, int numTosses)
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,50 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class NumberCube {
+
+	/**
+	 * @param args
+	 */
+	
+	private int[] tosses;
+	
+	public void setTosses(int[] tossees)
+	{
+		this.tosses=tosses;
+	}
+	
+	public static int toss()
+	{
+		return (int)Math.random()*6+1;
+	}
+	
+	public static int[] getCubeTosses(NumberCube cube, int numTosses)
+	{
+		int[] random=new int[numTosses];
+		
+		for(int i=0;i<random.length;i++)
+		{
+			random[i]=cube.toss();
+		}
+		
+		return random;
+	}
+	
+	public static int getLongestRun(int[] values)
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
