@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package projects.critters;
+
+import java.util.ArrayList;
+
+import info.gridworld.actor.Actor;
+import info.gridworld.actor.Critter;
+
+/**
+ * @author jack
+ *
+ */
+public class StockpileCritter extends Critter{
+
+	/**
+	 * @param args
+	 */
+	
+	private int energy;
+	
+	
+	public void processActors(ArrayList<Actor> actors)
+	{
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

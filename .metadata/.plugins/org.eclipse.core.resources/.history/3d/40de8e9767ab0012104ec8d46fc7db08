@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package projects.critters;
+
+import info.gridworld.actor.Critter;
+
+/**
+ * @author jack
+ *
+ */
+public class StockpileCritter extends Critter{
+
+	/**
+	 * @param args
+	 */
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

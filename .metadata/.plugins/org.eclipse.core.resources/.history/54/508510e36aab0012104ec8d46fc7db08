@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class BatteryCharger {
+
+	/**
+	 * @param args
+	 */
+	
+	private int[] rateTable;
+	
+	private int getChargingCost(int startHour, int chargeTime)
+	{
+		int totalCost=0;
+		for(int i=startHour;i<chargeTime;i++)
+		{
+			
+		}
+		return totalCost;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class BatteryCharger {
+
+	/**
+	 * @param args
+	 */
+	
+	private int[] rateTable;
+	
+	private int getChargingCost()
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
