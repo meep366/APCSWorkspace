@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class APLine {
+
+	/**
+	 * @param args
+	 */
+	
+	public APLine(int a1, int b1, int c1)
+	{
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
