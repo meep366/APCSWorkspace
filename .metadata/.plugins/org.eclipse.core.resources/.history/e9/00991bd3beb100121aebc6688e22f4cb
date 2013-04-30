@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MasterOrder {
+
+	/**
+	 * @param args
+	 */
+	
+	private List<CookieOrder> orders;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

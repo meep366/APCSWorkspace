@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class CookieOrder {
+
+	/**
+	 * @param args
+	 */
+	
+	private String variety;
+	
+	public CookieOrder(String variety, int numBoxes)
+	{
+		this.variety=variety;
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+	}
+
+}

@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MasterOrder {
+
+	/**
+	 * @param args
+	 */
+	
+	private List<CookieOrder> orders;
+	
+	public MasterOrder()
+	{
+		orders=new ArrayList<CookieOrder>();
+	}
+	
+	public void addOrder(CookieOrder theOrder)
+	{
+		orders.add(theOrder);
+	}
+	
+	public int getTotalBoxes()
+	{
+		int result=0;
+		for(int i=0;i<orders.size();i++)
+		{
+			
+		}
+	}
+	
+	public int removeVariety(String cookieVar)
+	{
+		return 0;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
