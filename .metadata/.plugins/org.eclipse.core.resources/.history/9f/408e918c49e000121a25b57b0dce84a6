@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MathProb {
+
+	/**
+	 * @param args
+	 */
+	//a+b*n must equal a prime number for n=integer values from 0-9
+	//b must be even
+	//a must be prime
+	public static boolean isPrime(double n)
+	{
+		if(n==2)
+			return true;
+		
+		for(int i=2;i<(int)Math.sqrt(n)+1;i++)
+		{
+			if(n/i==(int)n/i)
+				return false;
+		}
+		return true;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean end=false;
+		int a=2;
+		int b=2;
+		while(!end)
+		{
+			end=true;
+			for(int n=0;n<10;n++)
+			{
+		//		if((a+b*n))
+				
+			}
+			b+=2;
+		}
+		
+		System.out.println(isPrime(5));
+		
+	}
+
+}

@@ -1,0 +1,196 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MathProbBits {
+
+	/**
+	 * @param args
+	 */
+	
+	public static  long NUM=200;
+	public static boolean[] primeArray=new boolean[(int)NUM];
+	public static List<Integer> primeList;
+	
+	public MathProbBits()
+	{
+	//	createPrimes();
+	//	writeToText("primeList",0);
+		factorPrimes();
+	}
+	
+	
+	public void factorPrimes()
+	{
+		int ntimes=1;			//factors of factor var
+		long factor=1000;
+		
+		long[] sqrtPrimes=new long[(int) Math.sqrt(ntimes*factor)];	
+		long[] sqrtConstant=new long[sqrtPrimes.length];
+		boolean[] primeTempArray=new boolean[(int) factor];
+		
+		for(int i=2;i<sqrtPrimes.length;i++)		//initializing array
+		{
+			sqrtPrimes[i]=i;
+		}
+		
+		for(int i=2;i<Math.sqrt(sqrtPrimes.length);i++)		//creating primes and putting them in array
+		{
+			for(int j=i*i;j<sqrtPrimes.length;j+=i)
+			{
+				sqrtPrimes[j]=0;
+			}	
+		}
+		
+		for(int i=0;i<sqrtPrimes.length;i++)		//making constant array of primes 
+		{
+			sqrtConstant[i]=sqrtPrimes[i];
+		}
+		
+		long startTime=System.nanoTime();
+		
+		for(int i=0;i<ntimes;i++)		//loop through series of factor var
+		{
+			long startLoopCalcTime=System.nanoTime();
+			
+			for(int j=0;j<factor;j++)
+			{
+				primeTempArray[j]=true;
+			}
+			
+			long k;
+			long limit=((long)Math.sqrt(factor+factor*i));
+			
+			if(i==0)		//get rid of #1
+			{
+				primeTempArray[0]=false;
+				primeTempArray[1]=false;
+			}
+			
+			
+			for(long j=0;j<=limit&&j<sqrtPrimes.length;j++)		//loop through prime numbers and cross off multiples
+			{
+				if(sqrtPrimes[(int)j]!=0)
+				{
+					if(sqrtPrimes[(int)j]>limit)		//if starting i>100 and not square of prime
+					{
+						for(k=sqrtPrimes[(int)j];k<factor+factor*i;k+=sqrtConstant[(int)j])
+						{
+							primeTempArray[(int)k-(int)factor*i]=false;
+						}
+						sqrtPrimes[(int)j]=k;
+					}
+					else		//starting at square of prime
+					{
+						for(k=(long) Math.pow(sqrtConstant[(int)j], 2);k<factor+factor*i;k+=sqrtConstant[(int)j])
+						{
+							primeTempArray[(int)(k-factor*i)]=false;
+						}
+						sqrtPrimes[(int)j]=k;
+					}
+				}
+			}
+		System.out.println("Loop "+(i+1)+" Calc Time: "+(System.nanoTime()-startLoopCalcTime)/1000000000.+" seconds");
+		primeArray=primeTempArray;
+		writeToText("prime"+i,(i*factor));		//write text of primes of factor series
+		
+		}
+		System.out.println("Final Time: "+(System.nanoTime()-startTime)/1000000000.+" seconds");
+	}
+	
+	public void createPrimes()
+	{
+		long startTime=System.nanoTime();
+		for(int i=2;i<NUM;i++)
+		{
+			primeArray[i]=true;
+		}
+		
+		for(int i=2;i<Math.sqrt(primeArray.length);i++)
+		{
+			for(int j=i*i;j<primeArray.length;j+=i)
+			{
+				primeArray[j]=false;
+			}
+		}
+		System.out.println("Calc Time: "+(System.nanoTime()-startTime)/1000000000.+" seconds");
+	}
+	
+	
+	public void writeToText(String name, long offset)
+	{
+		long startTime=System.nanoTime();
+		try
+		{
+			File primeListFile=new File(name);
+			FileOutputStream primeOutput=new FileOutputStream(primeListFile);
+		
+			for(int i=0;i<primeArray.length;i++)
+			{
+				if(primeArray[i])
+				{
+					String primeString=BigInteger.valueOf((i+offset)).toString()+'\n';
+					primeOutput.write(primeString.getBytes());
+				}
+			}
+			primeOutput.close();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		System.out.println("Write Time: "+(System.nanoTime()-startTime)/1000000000.+" seconds");
+	}
+	
+	public static void writeToList()
+	{
+		List<Integer> primeStrings=new ArrayList<Integer>();
+		String temp="";
+		File primeListFile=new File("primeList");
+		try 
+		{
+			FileInputStream primeInput=new FileInputStream(primeListFile);
+			while(primeInput.available()>0)
+			{
+				byte[] b ={new Integer(primeInput.read()).byteValue()};
+				
+				if(b[0]==10)
+				{
+					primeStrings.add(Integer.valueOf(temp));
+					temp="";
+				}
+				else
+					temp+=new String(b);
+			}
+			primeInput.close();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		primeList=primeStrings;
+	}
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		MathProbBits mp=new MathProbBits();
+	}
+
+}

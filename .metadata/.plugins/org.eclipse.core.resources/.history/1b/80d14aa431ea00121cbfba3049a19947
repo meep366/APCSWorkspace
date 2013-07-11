@@ -1,0 +1,191 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MathProbEfficient {
+
+	/**
+	 * @param args
+	 */
+	
+	public static  long NUM=100;
+	public static long[] primeArray=new long[(int)NUM];
+	public static boolean[] primeBitArray=new boolean[(int)NUM];
+	public static List<Integer> primeList;
+	
+	public MathProbEfficient()
+	{
+		
+	//	createPrimes();
+	//	writeToText("primeList");
+		factorPrimes();
+	}
+	
+	public void factorPrimes()
+	{
+		int ntimes=3;			//powers of factor var
+		long factor=100;
+		
+		long[] sqrtPrimes=new long[(int) Math.sqrt(ntimes*factor)];	
+		long[] sqrtConstant=new long[sqrtPrimes.length];
+		long[] primeTempArray=new long[(int) factor];
+		
+		for(int i=2;i<sqrtPrimes.length;i++)		//initializing array
+		{
+			sqrtPrimes[i]=i;
+		}
+		
+		for(int i=2;i<Math.sqrt(sqrtPrimes.length);i++)		//creating primes and putting them in array
+		{
+			for(int j=i*i;j<sqrtPrimes.length;j+=i)
+			{
+				sqrtPrimes[j]=0;
+			}	
+		}
+		
+		for(int i=0;i<sqrtPrimes.length;i++)		//making constant array of primes 
+		{
+			sqrtConstant[i]=sqrtPrimes[i];
+		}
+		
+		long startTime=System.nanoTime();
+		
+		for(int i=0;i<ntimes;i++)		//loop through series of factor var
+		{
+			long startLoopCalcTime=System.nanoTime();
+			
+			for(int j=0;j<factor;j++)		//setting PrimeArray to correct series of factor var
+			{
+				primeTempArray[j]=j+factor*i;
+			}
+			
+			long k;
+			long limit=((long)Math.sqrt(factor+factor*i));
+			
+			if(i==0)		//get rid of #1
+				primeTempArray[1]=0;
+			
+			
+			for(int j=0;j<=limit&&j<sqrtPrimes.length;j++)		//loop through prime numbers and cross off multiples
+			{
+				if(sqrtPrimes[j]!=0)
+				{
+					if(sqrtPrimes[j]>limit)		//if starting i>100 and not square of prime
+					{
+						for(k=sqrtPrimes[j];k<factor+factor*i;k+=sqrtConstant[j])
+						{
+							primeTempArray[(int)k-(int)factor*i]=0;
+						}
+						sqrtPrimes[j]=k;
+					}
+					else		//starting at square of prime
+					{
+						for(k=(long) Math.pow(sqrtPrimes[j], 2);k<factor+factor*i;k+=sqrtConstant[j])
+						{
+							primeTempArray[(int)(k-factor*i)]=0;
+						}
+						sqrtPrimes[j]=k;
+					}
+				}
+			}
+		System.out.println("Loop "+(i+1)+" Calc Time: "+(System.nanoTime()-startLoopCalcTime)/1000000000.+" seconds");
+		primeArray=primeTempArray;
+		writeToText("prime"+i);		//write text of primes of factor series
+		
+		}
+		System.out.println("Final Time: "+(System.nanoTime()-startTime)/1000000000.+" seconds");
+	}
+	
+	public static void writeToList()
+	{
+		List<Integer> primeStrings=new ArrayList<Integer>();
+		String temp="";
+		File primeListFile=new File("primeList");
+		try 
+		{
+			FileInputStream primeInput=new FileInputStream(primeListFile);
+			while(primeInput.available()>0)
+			{
+				byte[] b ={new Integer(primeInput.read()).byteValue()};
+				
+				if(b[0]==10)
+				{
+					primeStrings.add(Integer.valueOf(temp));
+					temp="";
+				}
+				else
+					temp+=new String(b);
+			}
+			primeInput.close();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		primeList=primeStrings;
+	}
+	
+	public void createPrimes()
+	{
+		long startTime=System.nanoTime();
+		for(int i=2;i<NUM;i++)
+		{
+			primeArray[i]=i;
+		}
+		
+		for(int i=2;i<Math.sqrt(primeArray.length);i++)
+		{
+			for(int j=i*i;j<primeArray.length;j+=i)
+			{
+				primeArray[j]=0;
+			}	
+		}
+		System.out.println("Calc Time: "+(System.nanoTime()-startTime)/1000000000.+" seconds");
+	}
+	
+	public void writeToText(String name)
+	{
+		long startTime=System.nanoTime();
+		try
+		{
+			File primeListFile=new File(name);
+			FileOutputStream primeOutput=new FileOutputStream(primeListFile);
+		
+			for(int i=0;i<primeArray.length;i++)
+			{
+				if(primeArray[i]!=0)
+				{
+					String primeString=BigInteger.valueOf((primeArray[i])).toString()+'\n';
+					primeOutput.write(primeString.getBytes());
+				}
+			}
+			primeOutput.close();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		System.out.println("Write Time: "+(System.nanoTime()-startTime)/1000000000.+" seconds");
+	}
+	
+	public static void main(String[] args)  {
+
+		MathProbEfficient mp=new MathProbEfficient();
+	}
+
+}

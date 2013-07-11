@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MathProb {
+
+	/**
+	 * @param args
+	 */
+	//a+*bn must equal a prime number for n=integer values from 0-9
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		boolean end=false;
+		while(!end)
+		{
+			
+		}
+		
+	}
+
+}

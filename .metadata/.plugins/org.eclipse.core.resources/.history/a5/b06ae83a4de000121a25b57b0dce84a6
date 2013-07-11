@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ */
+
+/**
+ * @author jack
+ *
+ */
+public class MathProb {
+
+	/**
+	 * @param args
+	 */
+	//a+b*n must equal a prime number for n=integer values from 0-9
+	//b must be even
+	//a must be prime
+	public static List<Integer> primeList;
+	
+	public MathProb()
+	{
+		primeList=new ArrayList<Integer>();
+		for(int i=2;i<100000;i++)
+		{
+			primeList.add(i);
+		}
+		createPrimes();
+	}
+	
+	
+	public boolean isPrime(double n)
+	{
+		return MathProb.primeList.contains(n);
+		
+//		if(n==2)
+//			return true;
+//		
+//		for(int i=2;i<(int)Math.sqrt(n)+1;i++)
+//		{
+//			if(n/i==(int)n/i)
+//				return false;
+//		}
+//		return true;
+	}
+	
+	public  void createPrimes()
+	{
+		for(int i=0;i<primeList.size();i++)
+		{
+			for(int j=i+1;j<primeList.size();j++)
+			{
+				if(primeList.get(j)/primeList.get(i)==((double)primeList.get(j))/primeList.get(i))
+				{
+					primeList.remove(j);
+					j--;
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		MathProb mp=new MathProb();
+		boolean end=false;
+		int a=2;
+		int b=2;
+		while(!end)
+		{
+			end=true;
+			for(int n=0;n<10;n++)
+			{
+		//		if((a+b*n))
+				
+			}
+			b+=2;
+		}
+		
+		System.out.println(mp.isPrime(2));
+	}
+
+}
