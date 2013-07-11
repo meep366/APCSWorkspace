@@ -18,8 +18,6 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Stack"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.TreeMap"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.PriorityQueue"/>
@@ -35,4 +33,17 @@
 <fullyQualifiedTypeName name="info.gridworld.grid.Location"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.TwilioRestException"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.TwilioRestClient"/>
+<fullyQualifiedTypeName name="java.util.TreeMap"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.resource.factory.SmsFactory"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.resource.instance.Sms"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.verbs.TwiMLResponse"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.verbs.Sms"/>
+<fullyQualifiedTypeName name="com.twilio.sdk.verbs.TwiMLException"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
